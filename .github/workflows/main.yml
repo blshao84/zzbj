@@ -19,6 +19,20 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
+    
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:9-alpine
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: kEaLJ9ZERLLN
+          POSTGRES_USER: trans
+          POSTGRES_DB: trans
+        ports:
+          - 5432:5432
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
