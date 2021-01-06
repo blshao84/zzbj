@@ -1,0 +1,424 @@
+- R:
+    wkApproveGroupList:
+      description: 查询审批组列表
+      method: wkApproveGroupList
+      return-info:
+      - approveGroupId
+      - approveGroupName
+      - description
+      - userList
+    wkAttachmentList:
+      description: 查询附件列表
+      method: wkAttachmentList
+      params:
+        processInstanceId: ''
+      return-info:
+      - attachmentCode
+      - attachmentId
+      - attachmentName
+      - attachmentPath
+      - createdBy
+      - fileType
+      - processInstanceId
+      - remark
+      - version
+    wkHistoricProcessInstanceFormGet:
+      description: 查询历史流程审批单详细数据
+      method: wkHistoricProcessInstanceFormGet
+      params:
+        processInstanceId: ''
+      return-info:
+      - historicProcessInstanceDTO
+      - processData
+      - taskHistoryDTOList
+    wkHistoricProcessInstanceList:
+      description: 查询历史流程审批单列表
+      method: wkHistoricProcessInstanceList
+      return-info:
+      - deleteReason
+      - endTime
+      - operator
+      - processInstanceId
+      - processName
+      - processSequenceNum
+      - startTime
+      - subject
+    wkProcessConfigList:
+      description: 查询流程配置列表
+      method: wkProcessConfigList
+      params:
+        processName: ''
+      return-info:
+      - configId
+      - configName
+      - processId
+      - status
+    wkProcessGet:
+      description: 根据流程名称获取流程
+      method: wkProcessGet
+      params:
+        processName: ''
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkProcessIndexList:
+      description: 查询产品列表
+      method: wkProcessIndexList
+      params:
+        dates: null
+        likes: null
+        params: null
+        sortField: ''
+        sortOrder: ''
+      return-info:
+      - customization
+      - holderType
+      - processInstanceId
+      - processName
+      - productCode
+      - productShortDescription
+      - status
+      - subscriptionDate
+      - taskName
+    wkProcessIndexListPaged:
+      description: 查询产品列表
+      method: wkProcessIndexListPaged
+      params:
+        dates: null
+        likes: null
+        page: 0
+        pageSize: 0
+        params: null
+        sortField: ''
+        sortOrder: ''
+      return-info:
+      - customization
+      - holderType
+      - processInstanceId
+      - processName
+      - productCode
+      - productShortDescription
+      - status
+      - subscriptionDate
+      - taskName
+    wkProcessInstanceComplexList:
+      description: 查询相关的流程实例列表
+      method: wkProcessInstanceComplexList
+      params:
+        processInstanceStatus: null
+        processInstanceUserPerspective: ''
+      return-info:
+      - initiator
+      - processInstanceId
+      - processInstanceStatusEnum
+      - processName
+      - processSequenceNum
+      - startTime
+      - subject
+    wkProcessInstanceFormGet:
+      description: 查询流程实例审批单
+      method: wkProcessInstanceFormGet
+      params:
+        processInstanceId: ''
+      return-info:
+      - currentNodeDTO
+      - processData
+      - processInstanceDTO
+      - taskHistoryDTOList
+    wkProcessInstanceList:
+      description: 列出未完成的流程实例
+      method: wkProcessInstanceList
+      params:
+        processInstanceUserPerspective: ''
+      return-info:
+      - initiator
+      - processInstanceId
+      - processInstanceStatusEnum
+      - processName
+      - processSequenceNum
+      - startTime
+      - subject
+    wkProcessInstanceListByProcessName:
+      description: 列出未完成的流程实例
+      method: wkProcessInstanceListByProcessName
+      params:
+        processName: ''
+      return-info:
+      - initiator
+      - processInstanceId
+      - processInstanceStatusEnum
+      - processName
+      - processSequenceNum
+      - startTime
+      - subject
+    wkProcessList:
+      description: 查询流程列表
+      method: wkProcessList
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkTaskInfoList:
+      description: 获取待办事项
+      method: wkTaskInfoList
+      return-info:
+      - processInstanceDTO
+      - taskId
+      - taskName
+      - taskType
+    wkTaskListByProductCode:
+      description: 查询任务名称列表
+      method: wkTaskListByProductCode
+      params:
+        productCode: ''
+    wkTaskListByTaskName:
+      description: 获取待办事项
+      method: wkTaskListByTaskName
+      params:
+        taskNames: null
+      return-info:
+      - processInstanceDTO
+      - taskId
+      - taskName
+      - taskType
+    wkTaskNameList:
+      description: 查询任务名称列表
+      method: wkTaskNameList
+- U:
+    wkApproveGroupCreate:
+      description: 创建审批组
+      method: wkApproveGroupCreate
+      params:
+        approveGroupName: ''
+        description: ''
+      return-info:
+      - approveGroupId
+      - approveGroupName
+      - description
+      - userList
+    wkApproveGroupModify:
+      description: 更新审批组
+      method: wkApproveGroupModify
+      params:
+        approveGroupId: ''
+        approveGroupName: ''
+        description: ''
+      return-info:
+      - approveGroupId
+      - approveGroupName
+      - description
+      - userList
+    wkApproveGroupUserListModify:
+      description: 更新审批组用户
+      method: wkApproveGroupUserListModify
+      params:
+        approveGroupId: ''
+        approveGroupName: ''
+        userList: null
+      return-info:
+      - approveGroupId
+      - approveGroupName
+      - description
+      - userList
+    wkAttachmentUpload:
+      description: 创建与更新附件
+      method: wkAttachmentUpload
+      params:
+        file: null
+        fileType: ''
+        processInstanceId: ''
+        remark: ''
+        username: ''
+      return-info:
+      - attachmentCode
+      - attachmentId
+      - attachmentName
+      - attachmentPath
+      - createdBy
+      - fileType
+      - processInstanceId
+      - remark
+      - version
+    wkModifyProcessInstanceVariable:
+      description: 更新流程实例参数
+      method: wkModifyProcessInstanceVariable
+      params:
+        business: null
+        processInstanceId: ''
+        update: null
+    wkProcessConfigModify:
+      description: 更新流程配置
+      method: wkProcessConfigModify
+      params:
+        configList: null
+    wkProcessInstanceCreate:
+      description: 创建流程实例
+      method: wkProcessInstanceCreate
+      params:
+        processData: null
+        processName: ''
+    wkProcessInstanceCreateBatch:
+      description: 批量创建流程实例
+      method: wkProcessInstanceCreateBatch
+      params:
+        processData: null
+        processName: ''
+    wkProcessStatusModify:
+      description: 更新流程状态
+      method: wkProcessStatusModify
+      params:
+        processName: ''
+        status: null
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+- D:
+    wkApproveGroupDelete:
+      description: 删除审批组
+      method: wkApproveGroupDelete
+      params:
+        approveGroupId: ''
+    wkAttachmentDelete:
+      description: 删除附件
+      method: wkAttachmentDelete
+      params:
+        attachmentId: ''
+        processInstanceId: ''
+      return-info:
+      - attachmentCode
+      - attachmentId
+      - attachmentName
+      - attachmentPath
+      - createdBy
+      - fileType
+      - processInstanceId
+      - remark
+      - version
+    wkProcessAllClear:
+      description: 清空流程列表
+      method: wkProcessAllClear
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkProcessInstanceAllClear:
+      description: 清空流程实例
+      method: wkProcessInstanceAllClear
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+- Unsafe:
+    wkProcessInstanceClear:
+      description: 清除未完成的流程实例
+      method: wkProcessInstanceClear
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkProcessInstanceTerminate:
+      description: 废弃流程
+      method: wkProcessInstanceTerminate
+      params:
+        processInstanceId: ''
+      return-info:
+      - initiator
+      - processInstanceId
+      - processInstanceStatusEnum
+      - processName
+      - processSequenceNum
+      - startTime
+      - subject
+    wkProcessModify:
+      description: 自定义流程 1. 检查原有的流程定义是否有正在进行中的流程实例 2. 创建新的流程图并部署  2.1 持久化taskNode  2.2
+        持久化并关联相应的filter 2.3 根据taskNode生成bpmn文件并部署3. 节点关联审批组
+      method: wkProcessModify
+      params:
+        processName: ''
+        taskList: null
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkTaskApproveGroupBind:
+      description: 绑定审批组与流程节点
+      method: wkTaskApproveGroupBind
+      params:
+        processName: ''
+        taskList: null
+      return-info:
+      - processConfigs
+      - processId
+      - processName
+      - processStartableFilters
+      - status
+      - taskTypeCompletableFilters
+      - taskTypeReadableFilters
+      - tasks
+    wkTaskComplete:
+      description: 推进或回退任务
+      method: wkTaskComplete
+      params:
+        businessProcessData: null
+        ctlProcessData: null
+        taskId: ''
+      return-info:
+      - processInstanceDTO
+      - taskId
+      - taskName
+      - taskType
+    wkTaskCompleteBatch:
+      description: 批量推进或回退任务
+      method: wkTaskCompleteBatch
+      params:
+        tasks: null
+    wkValidProcessCanStart:
+      description: 判断是否可发起流程
+      method: wkValidProcessCanStart
+      params:
+        data: null
+        processName: ''
+    wkValidProductValueExist:
+      description: 校验是否存在相同的产品代码/产品简称/产品全称
+      method: wkValidProductValueExist
+      params:
+        productCode: ''
+        productDescription: ''
+        productShortDescription: ''

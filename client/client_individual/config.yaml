@@ -1,0 +1,170 @@
+even: local_dev #执行环境
+
+dev: # 开发环境
+  ip: 10.1.5.106
+  port: 16016
+  username: admin
+  pwd: 123456a.123456a.
+  remote_data: false
+  os: macos
+  login_type: login # 登陆方式，token: 使用token / login：使用username和pwd认证
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJuYW1lIjoi566h55CG5ZGYIiwiZGVwYXJ0bWVudF9pZCI6Niwicm9sZSI6ImFkbWluIiwidmlzaXQiOlsiMSIsIjIiLCIzIiwiNCIsIjUiLCI2IiwiNyIsIjgiLCI5IiwiMTAiLCIxMSIsIjEyIiwiMTMiLCIxNCIsIjE1IiwiMTYiLCIxNyIsIjE4IiwiMTkiLCIyMCIsIjIxIiwiMjIiLCIyMyIsIjI0IiwiMjUiLCIzMSIsIjQxIiwiNDIiLCI0MyIsIjYxIiwiNjIiLCI2MyIsIjcxIiwiODEiLCI5MSIsIjkyIiwiOTMiLCIxNjEiLCIxNzEiLCIxODEiLCIyMjEiLCIyMjIiLCI0MzEiLCI0MzIiLCI5OTkiLCI2NjMiLCI2NjQiLCI2NjUiLCI2NjciXX0sImlhdCI6MTYwMTAzMzEwNCwiZXhwIjoxNjA0NjMzMTA0fQ.Z7q71fLI_R8EbNj0Js6PtOPyFo9frLj4NMoydk-bkyU
+  logging_level: 10
+  logging_filename: dev_log.txt
+
+local_dev: # 开发环境
+  ip: localhost
+  port: 16081
+  username: script
+  pwd: 123456a.
+  remote_data: false
+  os: macos
+  login_type: token # 登陆方式，token: 使用token / login：使用username和pwd认证
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzY3JpcHQiLCJyb2xlcyI6WyJhZG1pbiJdLCJpc3MiOiJ0b25neXUudGVjaCIsImV4cCI6MTYxMTUzODMzNDE0OSwiaWF0IjoxNjAzNzYyMzM0MTQ5LCJ1c2VybmFtZSI6InNjcmlwdCJ9.NLjL2qY3wj92urytXoEpDrt6rtZGx0dchxVHmRsxWR8
+  db_ip:
+  db_pwd:
+  logging_level: 10
+  logging_filename: dev_log.txt
+  version: "001"
+  sender_code: "131101"
+  receiver_code: "000899"
+  send_date: "2020-01-01"
+  file_number: "0001"
+  operation_type: "0"
+
+A1000:
+  file_name: sample.xlsx
+  init_excel: True
+  range_field_begin: B1
+
+A1001:
+  file_name: A1001.xlsx
+  init_excel: True
+  sheet_0:
+    sheet_name: A1001
+    range_field_begin: B1
+    range_list_begin: B4
+  sheet_1:
+    sheet_name: A1001.1
+    range_list_begin: B3
+  pdfs: True
+A1002:
+  file_name: A1002.xlsx
+  init_excel: True
+  sheet_0:
+    sheet_name: A1002
+A1003:
+  file_name: A1003.xlsx
+  sheet_0:
+    sheet_name: A1003
+  sheet_1:
+    sheet_name: A1003.1
+A1004:
+  file_name: A1004.xlsx
+  sheet_0:
+    sheet_name: A1004
+  sheet_1:
+    sheet_name: A1004.1
+  sheet_2:
+    sheet_name: A1004.2
+  sheet_3:
+    sheet_name: A1004.3
+A1005:
+  file_name: A1005.xlsx
+  sheet_0:
+    sheet_name: A1005
+  sheet_1:
+    sheet_name: A1005.1
+  sheet_2:
+    sheet_name: A1005.2
+  sheet_3:
+    sheet_name: A1005.3
+  sheet_4:
+    sheet_name: A1005.4
+  sheet_5:
+    sheet_name: A1005.5
+  sheet_6:
+    sheet_name: A1005.6
+  sheet_7:
+    sheet_name: A1005.7
+  sheet_8:
+    sheet_name: A1005.8
+A1006:
+  file_name: A1006.xlsx
+  sheet_0:
+    sheet_name: A1006
+A1007:
+  file_name: A1007.xlsx
+  sheet_0:
+    sheet_name: A1007
+A1008:
+  file_name: A1008.xlsx
+  sheet_0:
+    sheet_name: A1008
+A1009:
+  file_name: A1009.xlsx
+  sheet_0:
+    sheet_name: A1009
+  sheet_1:
+    sheet_name: A1009.1
+A1010:
+  file_name: A1010.xlsx
+  sheet_0:
+    sheet_name: A1010
+  sheet_1:
+    sheet_name: A1010.1
+A1011:
+  file_name: A1011.xlsx
+  init_excel: True
+  sheet_0:
+    sheet_name: 业务统计
+  sheet_1:
+    sheet_name: 本月新增业务明细
+  sheet_2:
+    sheet_name: 本月末存量业务明细
+  sheet_3:
+    sheet_name: 标的情况与对冲
+  sheet_4:
+    sheet_name: 履约担保情况
+  sheet_5:
+    sheet_name: 盈亏情况
+A1012:
+  file_name: A1012.xlsx
+  init_excel: True
+  sheet_0:
+    sheet_name: 业务统计
+  sheet_1:
+    sheet_name: 利率互换明细
+  sheet_2:
+    sheet_name: 其他交易明细表
+A1013:
+  file_name: A1013.xlsx
+  init_excel: True
+  sheet_0:
+    sheet_name: 业务统计
+  sheet_1:
+    sheet_name: 本月新增业务明细
+  sheet_2:
+    sheet_name: 标的情况与对冲
+  sheet_3:
+    sheet_name: 履约担保情况
+  sheet_4:
+    sheet_name: 盈亏情况
+A1014:
+  file_name: A1014.xlsx
+  sheet_0:
+    sheet_name: A1014
+  sheet_1:
+    sheet_name: A1014.1
+A1015:
+  file_name: A1015.xlsx
+  sheet_0:
+    sheet_name: A1015
+  sheet_1:
+    sheet_name: A1015.1
+  sheet_2:
+    sheet_name: A1015.2
+  sheet_3:
+    sheet_name: A1015.3
+  sheet_4:
+    sheet_name: A1015.4

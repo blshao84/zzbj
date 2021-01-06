@@ -1,0 +1,78 @@
+[
+  {
+    "MasterAgrmtID": "1",
+    "MasterAgrmtNo": "2333",
+    "SigningDate": "沪深300",
+    "MasterAgrmtVer": "54",
+    "FillParty": "3880.0",
+    "CounterpartyName": "4090.9348",
+    "CounterpartyCode": "2020-02-06",
+    "ProCounterparty": "2020-03-31",
+    "CounterpartyType": "2",
+    "NFICode": "aaa",
+    "CounterpartyRegdCptl": "1.11",
+    "MasterAgrmtRemark": "1.12",
+    "MasterAgrmtAtt": "1.13",
+    "CounterpartyInformationTuple": [
+      {
+        "Name": "张三",
+        "Title": "经理",
+        "Telephone": "18888888888",
+        "Mobile": "17777777777",
+        "Email": "251146651@qq.com"
+      }
+    ],
+    "CounterpartyIdentity": "1.15"
+  },
+  {
+    "MasterAgrmtID": "1",
+    "MasterAgrmtNo": "2",
+    "SigningDate": "沪深300",
+    "MasterAgrmtVer": "54",
+    "FillParty": "3880.0",
+    "CounterpartyName": "4090.9348",
+    "CounterpartyCode": "2020-02-06",
+    "ProCounterparty": "2020-03-31",
+    "CounterpartyType": "2",
+    "NFICode": "bbb",
+    "CounterpartyRegdCptl": "1.11",
+    "MasterAgrmtRemark": "1.12",
+    "MasterAgrmtAtt": "1.13",
+    "CounterpartyInformationTuple": [],
+    "CounterpartyIdentity": "1.15"
+  },
+  {
+    "MasterAgrmtID": "2",
+    "MasterAgrmtNo": "NXDQ251",
+    "SigningDate": "沪深300",
+    "MasterAgrmtVer": "54",
+    "FillParty": "3899.9",
+    "CounterpartyName": "4028.4289",
+    "CounterpartyCode": "2020-02-06",
+    "ProCounterparty": "2020-03-31",
+    "CounterpartyType": "2",
+    "NFICode": "ccc",
+    "CounterpartyRegdCptl": "",
+    "MasterAgrmtRemark": "",
+    "MasterAgrmtAtt": "",
+    "CounterpartyInformationTuple": [],
+    "CounterpartyIdentity": ""
+  },
+  {
+    "MasterAgrmtID": "3",
+    "MasterAgrmtNo": "NXDQ252",
+    "SigningDate": "沪深300",
+    "MasterAgrmtVer": "54",
+    "FillParty": "3899.88",
+    "CounterpartyName": "",
+    "CounterpartyCode": "2020-02-06",
+    "ProCounterparty": "2020-03-31",
+    "CounterpartyType": "2",
+    "NFICode": "ddd",
+    "CounterpartyRegdCptl": "",
+    "MasterAgrmtRemark": "",
+    "MasterAgrmtAtt": "",
+    "CounterpartyInformationTuple": [],
+    "CounterpartyIdentity": ""
+  }
+]

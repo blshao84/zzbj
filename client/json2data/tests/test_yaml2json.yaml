@@ -1,0 +1,199 @@
+request:
+  url: http://{ip}:{port}/{path}/api/rpc
+  headers:
+    Authorization: Bearer {token}
+  page_settings: &pageSettings
+    page: 0
+    pageSize: 1000000
+  R_service:
+    - default
+    - market-data-service
+    - auth
+    - document
+    - market
+    - reference
+    - trade_option
+    - trade
+    - trade_snapshot_model
+    - workflow
+  C_service: None
+  U_service: None
+  D_service: None
+
+default:
+  path: default
+  test_api:
+    desc: 测试1
+    method: test_api  # 可不设置
+    params: # 可不设置
+      <<: *pageSettings
+    res_columns:  # 可不设置
+      - a
+      - b
+      - c
+  login:
+    desc: 登陆测试
+    path: api/workprocess/report/expired
+    params:
+      <<: *pageSettings
+      report_start_date: "2020-03-11"
+    res_columns:
+      - product_short_description
+      - product_code
+      - underlying_instrument
+      - maturity_value
+
+market-data-service:
+  path: market-data-service
+  mktInstrumentInfoListPaged:
+    desc: 测试1
+    method: mktInstrumentInfoListPaged
+    params:
+      <<: *pageSettings
+  mktInstrumentInfoList:
+    desc: 测试1
+  mkdCalendarList:
+    desc: 测试1
+  t1:
+    method: mkdCalendarList
+    desc: 测试1
+  t2:
+    method: mkdCalendarList
+    desc: 测试1
+  t3:
+    method: mkdCalendarList
+    desc: 测试1
+
+auth:
+  qyb_report_daily:
+    desc: 测试1
+    path: api/workprocess/report/expired
+    params:
+      <<: *pageSettings
+      report_start_date: "2020-03-11"
+    res_columns:
+      - product_short_description
+      - product_code
+      - underlying_instrument
+      - maturity_value
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+  t2:
+    desc: 测试1
+    path: api/workprocess/lifecycle/contract
+    params:
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+  t3:
+    desc: 测试1
+    path: api/workprocess/settle/classification
+    params:
+      <<: *pageSettings
+    res_columns:
+      - a
+      - b
+      - c
+
+document:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+market:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+reference:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+trade_option:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+trade:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+trade_snapshot_model:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c
+
+workflow:
+  t1:
+    desc: 测试1
+    path: api/workprocess/product/getBranchInfo
+    params:
+      <<: *pageSettings
+      a: ~
+      b: ~
+    res_columns:
+      - a
+      - b
+      - c

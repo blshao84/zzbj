@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:complexType name="RequestHeaderType">
+    <xs:sequence>
+      <xs:element name="Version">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="001"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SenderCode" type="ReporterCodeType"/>
+      <xs:element name="ReceiverCode" type="ReporterCodeType"/>
+      <xs:element name="SendDate" type="DateType"/>
+      <xs:element name="FileNumber" type="FileNumberType"/>
+      <xs:element name="BusiDataType" type="BusiDataTypeType"/>
+      <xs:element name="OperationType" type="OperationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReporterCodeType">
+    <xs:restriction base="xs:string">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusiDataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A1001"/>
+      <xs:enumeration value="A1002"/>
+      <xs:enumeration value="A1003"/>
+      <xs:enumeration value="A1004"/>
+      <xs:enumeration value="A1005"/>
+      <xs:enumeration value="A1006"/>
+      <xs:enumeration value="A1007"/>
+      <xs:enumeration value="A1008"/>
+      <xs:enumeration value="A1009"/>
+      <xs:enumeration value="A1010"/>
+      <xs:enumeration value="A1011"/>
+      <xs:enumeration value="A1012"/>
+      <xs:enumeration value="A1013"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="R"/>
+      <xs:enumeration value="U"/>
+      <xs:enumeration value="D"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MasterAgrmtNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SupAgrmtNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConfirmationIDType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConfirmationNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConfirmationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FillPartyType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyAPaymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBPaymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyAPaymentFreqType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBPaymentFreqType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StartDateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DueDateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SettlementDateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CurrencyType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NotinalPrincipleAmtType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ClearingAgencyType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TradingPlaceType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UndrlygAssetTypeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConfirmationRemarkType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PtyAtoPtyBType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetDtldType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetTradgPlc">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetInitialPrice">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyAUndrlygAssetAmt">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PtyBtoPtyAType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetDtldType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetTradgPlc">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetInitialPrice">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBUndrlygAssetAmt">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PerformanceGuaranteeTypeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceCollProviderType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PartyUseCollType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CollInstructionType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CalculateCollInterestType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceCollInitialRatioType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceCollAddtlRatioType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceCollOffsetRatioType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceGuaranteeAttType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceGuaranteeRemarkType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PerformanceCollTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PerformanceCollType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PerformanceCollRange">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="MultiConfirmationID">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1024"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RemarkType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ConfirmationAttTupleType">
+    <xs:sequence>
+      <xs:element name="ConfirmationAtt">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ComplianceOpinionType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyAUndrlygAssetNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyAProfitCalculationInfoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyAProfitRemarkType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBUndrlygAssetNoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBProfitCalculationInfoType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBProfitRemarkType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ReferenceARateBTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyARefRateType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyARefRateName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceBRateBTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyBRefRateType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PtyBRefRateName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FixedARateReturnBTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyAAgreedInterestRate">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FixedBRateReturnBTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PtyBAgreedInterestRate">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PtyAPdctNameType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PytAPdctCodeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PtyBPdctNameType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="200"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PytBPdctCodeType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExceIDType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9]{28}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="RequestHeaderType"/>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="SwapConfirmation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExceID" type="ExceIDType"/>
+                    <xs:element name="MasterAgrmtNo" type="MasterAgrmtNoType"/>
+                    <xs:element name="SupAgrmtNo" type="SupAgrmtNoType"/>
+                    <xs:element minOccurs="0" name="ConfirmationID" nillable="true" type="ConfirmationIDType"/>
+                    <xs:element name="ConfirmationNo" type="ConfirmationNoType"/>
+                    <xs:element name="ConfirmationType" type="ConfirmationTypeType"/>
+                    <xs:element name="FillParty" type="FillPartyType"/>
+                    <xs:element name="PtyAPaymentMethod" type="PtyAPaymentMethodType"/>
+                    <xs:element name="PtyBPaymentMethod" type="PtyBPaymentMethodType"/>
+                    <xs:element name="PtyAPaymentFreq" type="PtyAPaymentFreqType"/>
+                    <xs:element name="PtyBPaymentFreq" type="PtyBPaymentFreqType"/>
+                    <xs:element name="StartDate" type="StartDateType"/>
+                    <xs:element name="DueDate" type="DueDateType"/>
+                    <xs:element minOccurs="0" name="SettlementDate" nillable="true" type="SettlementDateType"/>
+                    <xs:element name="Currency" type="CurrencyType"/>
+                    <xs:element name="NotinalPrincipleAmt" type="NotinalPrincipleAmtType"/>
+                    <xs:element name="ClearingAgency" type="ClearingAgencyType"/>
+                    <xs:element name="TradingPlace" type="TradingPlaceType"/>
+                    <xs:element name="UndrlygAssetType" type="UndrlygAssetTypeType"/>
+                    <xs:element minOccurs="0" name="ConfirmationRemark" nillable="true" type="ConfirmationRemarkType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="PtyAtoPtyB" type="PtyAtoPtyBType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="PtyBtoPtyA" type="PtyBtoPtyAType"/>
+                    <xs:element name="PerformanceGuaranteeType" type="PerformanceGuaranteeTypeType"/>
+                    <xs:element minOccurs="0" name="PerformanceCollProvider" nillable="true" type="PerformanceCollProviderType"/>
+                    <xs:element minOccurs="0" name="PartyUseColl" nillable="true" type="PartyUseCollType"/>
+                    <xs:element minOccurs="0" name="CollInstruction" nillable="true" type="CollInstructionType"/>
+                    <xs:element minOccurs="0" name="CalculateCollInterest" nillable="true" type="CalculateCollInterestType"/>
+                    <xs:element minOccurs="0" name="PerformanceCollInitialRatio" nillable="true" type="PerformanceCollInitialRatioType"/>
+                    <xs:element minOccurs="0" name="PerformanceCollAddtlRatio" nillable="true" type="PerformanceCollAddtlRatioType"/>
+                    <xs:element minOccurs="0" name="PerformanceCollOffsetRatio" nillable="true" type="PerformanceCollOffsetRatioType"/>
+                    <xs:element minOccurs="0" name="PerformanceGuaranteeAtt" nillable="true" type="PerformanceGuaranteeAttType"/>
+                    <xs:element minOccurs="0" name="PerformanceGuaranteeRemark" nillable="true" type="PerformanceGuaranteeRemarkType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="PerformanceCollTuple" nillable="true" type="PerformanceCollTupleType"/>
+                    <xs:element minOccurs="0" name="Remark" nillable="true" type="RemarkType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ConfirmationAttTuple" nillable="true" type="ConfirmationAttTupleType"/>
+                    <xs:element minOccurs="0" name="ComplianceOpinion" nillable="true" type="ComplianceOpinionType"/>
+                    <xs:element name="PtyAUndrlygAssetNo" type="PtyAUndrlygAssetNoType"/>
+                    <xs:element minOccurs="0" nillable="true" name="PtyAProfitCalculationInfo" type="PtyAProfitCalculationInfoType"/>
+                    <xs:element minOccurs="0" name="PtyAProfitRemark" nillable="true" type="PtyAProfitRemarkType"/>
+                    <xs:element minOccurs="0" name="PtyBUndrlygAssetNo" nillable="true" type="PtyBUndrlygAssetNoType"/>
+                    <xs:element minOccurs="0" name="PtyBProfitCalculationInfo" nillable="true" type="PtyBProfitCalculationInfoType"/>
+                    <xs:element minOccurs="0" name="PtyBProfitRemark" nillable="true" type="PtyBProfitRemarkType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceARateBTuple" nillable="true" type="ReferenceARateBTupleType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ReferenceBRateBTuple" nillable="true" type="ReferenceBRateBTupleType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="FixedARateReturnBTuple" nillable="true" type="FixedARateReturnBTupleType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="FixedBRateReturnBTuple" nillable="true" type="FixedBRateReturnBTupleType"/>
+                    <xs:element minOccurs="0" name="PtyAPdctName" nillable="true" type="PtyAPdctNameType"/>
+                    <xs:element minOccurs="0" name="PytAPdctCode" nillable="true" type="PytAPdctCodeType"/>
+                    <xs:element minOccurs="0" name="PtyBPdctName" nillable="true" type="PtyBPdctNameType"/>
+                    <xs:element minOccurs="0" name="PytBPdctCode" nillable="true" type="PytBPdctCodeType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

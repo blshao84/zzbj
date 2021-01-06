@@ -1,0 +1,17 @@
+rootProject.name = 'CSI-Data-Report'
+
+include ':core'
+include ':base-entrance'
+include ':commerce-model'
+include ':base-external'
+include ':center'
+include ':ods-source-transform'
+include ':report-service'
+
+project(':core').projectDir = "$rootDir/core" as File
+project(':base-entrance').projectDir = "$rootDir/base-entrance" as File
+project(':base-external').projectDir = "$rootDir/base-external" as File
+project(':commerce-model').projectDir = "$rootDir/commerce-model" as File
+project(':center').projectDir = "$rootDir/center" as File
+project(':ods-source-transform').projectDir = "$rootDir/ods-source-transform" as File
+project(':report-service').projectDir = "$rootDir/report-service" as File

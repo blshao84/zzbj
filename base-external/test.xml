@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root>
+<Header>
+<Version>001</Version>
+<SendCode>131101</SendCode>
+</Header>
+<Body>
+<MasterAgrmt>
+<ExcID>202020202011111111</ExcID>
+</MasterAgrmt>
+<MasterAgrmt>
+<test3333>附加测试</test3333>
+<ConterPartyInformationTuple>
+<Title>高级业务经理</Title>
+<name>李四</name>
+</ConterPartyInformationTuple>
+</MasterAgrmt>
+</Body>
+</Root>

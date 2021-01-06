@@ -1,0 +1,159 @@
+allprojects {
+    group = 'tech.tongyu'
+    version = '1.0'
+}
+
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.hidetake:gradle-ssh-plugin:2.9.0"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
+    }
+}
+
+apply plugin: 'org.hidetake.ssh'
+
+subprojects {
+    apply plugin: 'java'
+    ext {
+        encoding = 'UTF-8'
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+
+        springBootVersion = '2.3.0.RELEASE'
+        springSecurityVersion = '5.1.0.RELEASE'
+        dubboVersion = '2.7.7'
+        guavaVersion = '26.0-jre'
+        commonsLang3Version = '3.7'
+        collections4Version = '4.1'
+        beanutilsVersion = '1.9.3'
+        jacksonVersion = '2.9.6'
+        postgreVersion = '42.2.2'
+        vavrVersion = '0.9.2'
+        dubboVersion = '2.7.7'
+        freeMarkerVersion = '2.3.28'
+
+        webAppRemoteFolder = 'master'
+        webAppRemoteVersion = 'last'
+        webAppRemotePath = "${webAppRemoteFolder}/${webAppRemoteVersion}"
+        webAppDistPath = "${projectDir}/src/main/resources/static"
+    }
+    configurations {
+        all*.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+        all*.exclude group: 'log4j', module: 'log4j'
+        coberturaRuntime { extendsFrom testRuntime }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        maven { url "https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases/" }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+        maven { url "http://repo.maven.apache.org/maven2" }
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
+        compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "${jacksonVersion}"
+        compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: "${jacksonVersion}"
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+        compile group: 'org.apache.commons', name: 'commons-collections4', version: "${collections4Version}"
+        compile group: 'commons-beanutils', name: 'commons-beanutils', version: "${beanutilsVersion}"
+        compile group: 'com.google.guava', name: 'guava', version: "${guavaVersion}"
+        compile group: 'io.vavr', name: 'vavr', version: "${vavrVersion}"
+        testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+
+    }
+
+    test {
+        testLogging {
+            showStandardStreams = true
+        }
+    }
+
+    clean.doFirst {
+        delete "${projectDir}/target"
+        delete "${projectDir}/out"
+    }
+
+    compileJava {
+        options.compilerArgs << '-parameters'
+    }
+
+    compileTestJava {
+        options.compilerArgs << '-parameters'
+    }
+
+    assemble.doLast {
+        println("copying built jar from ${buildDir}/libs to ${projectDir}/target")
+        copy {
+            from "${buildDir}/libs"
+            include "*.jar"
+            into "${projectDir}/target"
+        }
+    }
+
+}
+
+project.task("installLocal") {
+    doLast {
+        delete "$rootDir/csi-trans"
+        mkdir "$rootDir/csi-trans"
+        mkdir "$rootDir/csi-trans/answer-document"
+        mkdir "$rootDir/csi-trans/attachment-document"
+        mkdir "$rootDir/csi-trans/base-document"
+        mkdir "$rootDir/csi-trans/log"
+        mkdir "$rootDir/csi-trans/bin"
+        mkdir "$rootDir/csi-trans/xsd"
+        mkdir "$rootDir/csi-trans/excel"
+        mkdir "$rootDir/csi-trans/script"
+        mkdir "$rootDir/csi-trans/script/python"
+        mkdir "$rootDir/csi-trans/script/sql"
+        println("copying trans.config.js from $rootDir/script to $rootDir/csi-trans")
+        copy {
+            from "$rootDir/script"
+            include "trans.config.js"
+            into "$rootDir/csi-trans"
+        }
+        println("copying center-1.0.jar from $rootDir/center/target to $rootDir/csi-trans/bin")
+        copy {
+            from "$rootDir/center/target"
+            include "center-1.0.jar"
+            into "$rootDir/csi-trans/bin"
+        }
+        println("copying xsd files from $rootDir/client/service/xsd to $rootDir/csi-trans/xsd")
+        copy {
+            from "$rootDir/client/service/xsd"
+            include "**"
+            into "$rootDir/csi-trans/xsd"
+        }
+        println("copying excel files from $rootDir/client/service/excel_template to $rootDir/csi-trans/excel")
+        copy {
+            from "$rootDir/client/service/excel_template"
+            include "**"
+            into "$rootDir/csi-trans/excel"
+        }
+        println("copying python files from $rootDir/client to $rootDir/csi-trans/script/python")
+        copy {
+            from "$rootDir/client"
+            include "**"
+            into "$rootDir/csi-trans/script/python"
+        }
+        println("copying sql files from $rootDir/script/sample to $rootDir/csi-trans/script/sql")
+        copy {
+            from "$rootDir/script/sample"
+            include "**"
+            into "$rootDir/csi-trans/script/sql"
+        }
+    }
+}

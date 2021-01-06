@@ -1,0 +1,56 @@
+server:
+  port: ${SERVER_PORT:16081}
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  application:
+    name: ${SERVER_NAME:CSI-TRANS}
+  banner:
+    location: classpath:tongyu.txt
+  profiles:
+    active: postgres
+  answer:
+    location: ${FILE_ANSWER_LOCATION:answer-document}
+  upload:
+    location: ${FILE_BASE_LOCATION:base-document}
+  attachment:
+    location: ${FILE_ATTACHMENT_LOCATION:attachment-document}
+  jpa:
+    show-sql: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+settings:
+  timezone: Asia/Shanghai
+  secret: dkJ34Bdadf098adf
+  issuer: tongyu.tech
+  env: ${ENV:dev}
+  expiration_days: 30
+  max_login_failure_times: 8
+
+logging:
+  config: classpath:log4j2.xml
+---
+# postgres
+spring:
+  profiles: postgres
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/trans?characterEncoding=UTF-8&stringtype=unspecified
+    username: trans
+    password: kEaLJ9ZERLLN
+    initialization-mode: always
+  jpa:
+    properties:
+      generate-ddl: true
+      hibernate:
+        dialect: tech.tongyu.core.utils.jpa.PgDialect
+        ddl-auto: update

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <Header>
+    <Version>001</Version>
+    <SenderCode>000023</SenderCode>
+    <ReceiverCode>000020</ReceiverCode>
+    <SendDate>2021-01-06</SendDate>
+    <FileNumber>0002</FileNumber>
+    <BusiDataType>A1001</BusiDataType>
+    <OperationType>A</OperationType>
+  </Header>
+  <Body>
+    <MasterAgrmt>
+      <ExceID>0000230000202021010600020000</ExceID>
+      <MasterAgrmtNo>JCWjcw-20201228001</MasterAgrmtNo>
+      <SigningDate>2020-12-12</SigningDate>
+      <MasterAgrmtVer>1</MasterAgrmtVer>
+      <FillParty>1</FillParty>
+      <CounterpartyName>上海海德集团新增</CounterpartyName>
+      <CounterpartyCode>12312333</CounterpartyCode>
+      <ProCounterparty>0</ProCounterparty>
+      <CounterpartyType>1</CounterpartyType>
+      <NFICode>14525454754</NFICode>
+      <CounterpartyRegdCptl>125534.11</CounterpartyRegdCptl>
+      <MasterAgrmtRemark>国有</MasterAgrmtRemark>
+      <MasterAgrmtAtt>A100101.pdf</MasterAgrmtAtt>
+      <CounterpartyInformationTuple>
+        <Name>凌霄</Name>
+        <Title>CEO</Title>
+        <Telephone>021-1234564</Telephone>
+        <Mobile>13855444587</Mobile>
+        <Email>316774525@qq.com</Email>
+      </CounterpartyInformationTuple>
+      <CounterpartyIdentity>1</CounterpartyIdentity>
+    </MasterAgrmt>
+  </Body>
+</Root>

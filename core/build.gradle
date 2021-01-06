@@ -1,0 +1,16 @@
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: "2.3.0.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "2.3.0.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: "2.3.0.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "2.3.0.RELEASE"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: "2.3.0.RELEASE"
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "2.9.6"
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: "2.9.6"
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-parameter-names', version: "2.9.6"
+    compile group: 'javax.validation', name: 'validation-api', version: "1.1.0.Final"
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: "5.4.1.Final"
+    compile group: 'org.springframework', name: 'spring-context-support', version: '5.1.2.RELEASE'
+    compile 'org.postgresql:postgresql:42.2.2'
+    compile 'ch.ethz.ganymed:ganymed-ssh2:262'
+    compile(group: 'com.alibaba', name: 'fastjson', version: "1.2.47")
+}

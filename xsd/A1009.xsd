@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:complexType name="RequestHeaderType">
+    <xs:sequence>
+      <xs:element name="Version">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="001"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SenderCode" type="ReporterCodeType"/>
+      <xs:element name="ReceiverCode" type="ReporterCodeType"/>
+      <xs:element name="SendDate" type="DateType"/>
+      <xs:element name="FileNumber" type="FileNumberType"/>
+      <xs:element name="BusiDataType" type="BusiDataTypeType"/>
+      <xs:element name="OperationType" type="OperationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReporterCodeType">
+    <xs:restriction base="xs:string">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusiDataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A1001"/>
+      <xs:enumeration value="A1002"/>
+      <xs:enumeration value="A1003"/>
+      <xs:enumeration value="A1004"/>
+      <xs:enumeration value="A1005"/>
+      <xs:enumeration value="A1006"/>
+      <xs:enumeration value="A1007"/>
+      <xs:enumeration value="A1008"/>
+      <xs:enumeration value="A1009"/>
+      <xs:enumeration value="A1010"/>
+      <xs:enumeration value="A1011"/>
+      <xs:enumeration value="A1012"/>
+      <xs:enumeration value="A1013"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="R"/>
+      <xs:enumeration value="U"/>
+      <xs:enumeration value="D"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BizIDType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="EventReportTupleType">
+    <xs:sequence>
+      <xs:element name="EventReport">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="200"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DetailedDescriptionType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ExceIDType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9]{28}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="RequestHeaderType"/>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="EventReport">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExceID" type="ExceIDType"/>
+                    <xs:element minOccurs="0" name="BizID" nillable="true" type="BizIDType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="EventReportTuple" nillable="true" type="EventReportTupleType"/>
+                    <xs:element name="DetailedDescription" type="DetailedDescriptionType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

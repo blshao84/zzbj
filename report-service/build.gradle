@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':ods-source-transform')
+    compile project(':base-entrance')
+    compile project(':base-external')
+}

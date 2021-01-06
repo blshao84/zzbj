@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:complexType name="RequestHeaderType">
+    <xs:sequence>
+      <xs:element name="Version">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="001"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SenderCode" type="ReporterCodeType"/>
+      <xs:element name="ReceiverCode" type="ReporterCodeType"/>
+      <xs:element name="SendDate" type="DateType"/>
+      <xs:element name="FileNumber" type="FileNumberType"/>
+      <xs:element name="BusiDataType" type="BusiDataTypeType"/>
+      <xs:element name="OperationType" type="OperationTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReporterCodeType">
+    <xs:restriction base="xs:string">
+      <xs:length value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusiDataTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A1001"/>
+      <xs:enumeration value="A1002"/>
+      <xs:enumeration value="A1003"/>
+      <xs:enumeration value="A1004"/>
+      <xs:enumeration value="A1005"/>
+      <xs:enumeration value="A1006"/>
+      <xs:enumeration value="A1007"/>
+      <xs:enumeration value="A1008"/>
+      <xs:enumeration value="A1009"/>
+      <xs:enumeration value="A1010"/>
+      <xs:enumeration value="A1011"/>
+      <xs:enumeration value="A1012"/>
+      <xs:enumeration value="A1013"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperationTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A"/>
+      <xs:enumeration value="R"/>
+      <xs:enumeration value="U"/>
+      <xs:enumeration value="D"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BizIDType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="YearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="MonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="MainAgreementAddedThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="MainAgreementAccumulatedThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="MainAgreementValidedAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SupplementalAgreementAddedThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SupplementalAgreementAccumulatedThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SupplementalAgreementValidedAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceGuaranteeAgreementAddedThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceGuaranteeAgreementAccumulatedThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="PerformanceGuaranteeAgreementValidedAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TransactionConfirmationAddedThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TransactionConfirmationBookAccumulatedThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TransactionConfirmationValidedAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionBusinessCorrespondenceType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="NetCapitalAtEndOfTheMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionsBusinessAccountedForTheProportionOfTheCorrespondingNetCapitalType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionHasSignedByLegalPersonType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsHaveContractedProductsType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsForTheMonthOfTheNewAddLegalPersonType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsForTheMonthOfTheNewAddProductType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsLegalPersonInDurationForThisMouthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsProductsInDurationForThisMouthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapHasSignedLegalPersonNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapHasSignedProductNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapForTheMonthOfTheNewAddLegalPersonType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapForTheMonthOfTheNewAddProductType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapLegalPersonInDurationForThisMouthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapProductsInDurationForThisMouthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCStockIndexOptionsWithinTheLastMonthTheExistenceOfScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsWithinIndividualStocksLateLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticStockIndexLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticIndividualStocksLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeCommoditiesLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeOtherSubjectLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalOfLastMonthDurationScaleType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsWithinTheIndexThisMonthOfTheNewScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsToAddScaleDomesticStocksInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticStockIndexTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticIndividualStocksTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeCommoditiesTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeOtherSubjectTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalOfTheNewSizeOfTheIncreaseInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsTerminateScaleDomesticStockIndexThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsTerminateScaleDomesticStocksInThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticStockIndexTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticIndividualStocksTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeCommoditiesTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeOtherSubjectTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalOfTerminationOfTheScaleOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCStockIndexOptionsWithinThisMonthOfTheExistenceOfScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsWithinIndividualStocksInThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesInThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticStockIndexThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeDomesticIndividualStocksThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeCommoditiesThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RevenueExchangeOtherSubjectThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalOfThisMonthDurationScaleType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockIndexThisYearCumulativeScaleOfNewTerritoryType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockThisYearCumulativeScaleOfNewTerritoryType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesThisYearCumulativeScaleOfNewTerritoryType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectThisYearCumulativeScaleOfNewTerritoryType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockIndexHasAddedNewScaleInThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockHasAddedNewScaleInThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapCommoditiesIndexHasAddedNewScaleInThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapOtherSubjectIndexHasAddedNewScaleInThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNewScaleInThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockIndexAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNumberOfContractsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockIndexThisMonthNewDomesticContractNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockThisMonthNewDomesticContractNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesThisMonthNewDomesticContractNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectThisMonthNewDomesticContractNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockIndexNewContractInThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockNewContractInThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapCommoditiesNewContractInThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapOtherSubjectNewContractInThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNumberOfNewContractsInThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockIndexNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheCommoditiesNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheOtherSubjectNumberType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockIndexTerminatesTheNumberOfContractsThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockTerminatesTheNumberOfContractsThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapCommoditiesTerminatesTheNumberOfContractsThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapOtherSubjectTerminatesTheNumberOfContractsThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNumberOfContractsTerminatedThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNumberOfContractsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockIndexCumulativeDomesticNewContractNumberInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsStockCumulativeDomesticNewContractNumberInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsCommoditiesCumulativeDomesticNewContractNumberInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="OTCOptionsOtherSubjectCumulativeDomesticNewContractNumberInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockIndexCumulativeNumberOfNewContractsInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapDomesticStockCumulativeNumberOfNewContractsInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapCommoditiesCumulativeNumberOfNewContractsInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="IncomeSwapOtherSubjectCumulativeNumberOfNewContractsInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNumberOfNewContractsInThisYearType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNominalPrincipalAmountOfSwapThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNominalPrincipalAmountOfSwapLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapCashCollateralValueThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapCashCollateralValueLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapSecuritiesCollateralValueThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapSecuritiesCollateralValueLastMonthThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthFullType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthFullType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthNetType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthNetType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapNumberOfDefaultCustomersAtThisMonthThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SwapNumberOfDefaultCustomersAtThisMonthLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SwapDefaultTransactionNumberAtThisMonthThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SwapDefaultTransactionNumberAtThisMonthLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalSwapDefaultCustomerNumberInThisYearThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalSwapDefaultCustomerNumberInThisYearLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SwapNumberOfDefaultCustomersInThisYearThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SwapNumberOfDefaultCustomersInThisYearLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNominalPrincipalAmountOfForwardThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TotalNominalPrincipalAmountOfForwardLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardCashCollateralValueThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardCashCollateralValueLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardSecuritiesCollateralValueThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardSecuritiesCollateralValueLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthFullType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthFullType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthNetType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthNetType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardNumberOfDefaultCustomersAtThisMonthThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardNumberOfDefaultCustomersAtThisMonthLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardTransactionNumberAtThisMonthThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardTransactionNumberAtThisMonthLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalForwardDefaultCustomerNumberInThisYearThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="TotalForwardDefaultCustomerNumberInThisYearLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardNumberOfDefaultCustomersInThisYearThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardNumberOfDefaultCustomersInThisYearLastMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="StockTradingCorrespondsToValueOfCollateralAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StockTradingCorrespondsToValueOfCollateralAtEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CashBalanceAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CashBalanceAtEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldStockMarketValueAtEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldStockMarketValueAtEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldMarketValueOfBondsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldMarketValueOfBondsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OwnedAssetManagementProductsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OwnedAssetManagementProductsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OwnedBankFinanceAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OwnedBankFinanceAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldTrustProductAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldTrustProductAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InsuranceProductsAreHeldAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InsuranceProductsAreHeldAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldOtherProductsAtTheEndOfThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldOtherProductsAtTheEndOfLastMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SettledSwapItemsAtThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SettledSwapTransactionInvolvesNotionalPrincipalAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapIncomeCashFlowType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapExpensesCashFlowType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CashFlowCorrespondingToNetIncomeOnSwapMarginType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SwapHedgeCostType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SettledOptionItemsAtThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SettledOptionTransactionInvolvesNotionalPrincipalAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OptionPremiumIncomeType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OptionHedgeCostType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SettledForwardItemsAtThisMonthType">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="SettledForwardTransactionInvolvesNotionalPrincipalAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardIncomeCashFlowType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardExpensesCashFlowType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ForwardHedgeCostType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapRealizedGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionRealizedGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardRealizedGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapRealizedGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionRealizedGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardRealizedGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapTotalGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionTotalGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardTotalGainsAndLossesAtThisMonthType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfSwapTotalGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfOptionTotalGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BalanceOfForwardTotalGainsAndLossesAtThisYearType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="IncreaseBusinessDetailsThisMonthTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SecurityCompany">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CounterpartyName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CounterpartyProductName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TransactionConfirmationNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TradeConfirmationsType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="BusinessType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="NotionalPrincipalAmount">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TotalAmountOfNominalPrincipalAmount">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="StartingDay">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="DueDate">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="InvestmentTargetType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OptionObjectSecondClass">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ReturnSwapObjectSecondClass">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="NonAnnualOptionFee">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OptionType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InventoryBusinessDetailsAtTheEndOfThisMonthType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NameOfSecuritiesCompany">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CounterpartyName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="CounterpartyProductName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TransactionConfirmationNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TypeOfTransactionConfirmation">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="BusinessType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="NotionalPrincipalAmount">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TotalAmountOfNominalPrincipalAmount">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="StartingDay">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="DueDate">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="|(\d\d\d\d-\d\d-\d\d)"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SumInvestmentTargetType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OptionSumInvestmentTargetType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExchangeSumInvestmentTargetType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OptionFee">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="OptionType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TargetCaseAndHedgeTupleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SecurityCompany">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="BusinessType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SumInvestmentTargetType">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SumInvestmentTargetName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="BuyingImpulseVolume">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SellingImpulseVolume">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ImpulseVolume">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PositionAtTheEndOfThisMonth">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TheNumberOfPositionsHeldAtTheEndOfThisMonth">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="AveragePriceAtTheEndOfTheMonth">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="MarketValueOfTheLastTradingDayOfTheMonth">
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ExceIDType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9]{28}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Root">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Header" type="RequestHeaderType"/>
+        <xs:element name="Body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="PeriodicReportSAC">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ExceID" type="ExceIDType"/>
+                    <xs:element minOccurs="0" name="BizID" nillable="true" type="BizIDType"/>
+                    <xs:element name="Year" type="YearType"/>
+                    <xs:element name="Month" type="MonthType"/>
+                    <xs:element name="MainAgreementAddedThisMonth" type="MainAgreementAddedThisMonthType"/>
+                    <xs:element name="MainAgreementAccumulatedThisYear" type="MainAgreementAccumulatedThisYearType"/>
+                    <xs:element name="MainAgreementValidedAtEndOfThisMonth" type="MainAgreementValidedAtEndOfThisMonthType"/>
+                    <xs:element name="SupplementalAgreementAddedThisMonth" type="SupplementalAgreementAddedThisMonthType"/>
+                    <xs:element name="SupplementalAgreementAccumulatedThisYear" type="SupplementalAgreementAccumulatedThisYearType"/>
+                    <xs:element name="SupplementalAgreementValidedAtTheEndOfThisMonth" type="SupplementalAgreementValidedAtTheEndOfThisMonthType"/>
+                    <xs:element name="PerformanceGuaranteeAgreementAddedThisMonth" type="PerformanceGuaranteeAgreementAddedThisMonthType"/>
+                    <xs:element name="PerformanceGuaranteeAgreementAccumulatedThisYear" type="PerformanceGuaranteeAgreementAccumulatedThisYearType"/>
+                    <xs:element name="PerformanceGuaranteeAgreementValidedAtEndOfThisMonth" type="PerformanceGuaranteeAgreementValidedAtEndOfThisMonthType"/>
+                    <xs:element name="TransactionConfirmationAddedThisMonth" type="TransactionConfirmationAddedThisMonthType"/>
+                    <xs:element name="TransactionConfirmationBookAccumulatedThisYear" type="TransactionConfirmationBookAccumulatedThisYearType"/>
+                    <xs:element name="TransactionConfirmationValidedAtEndOfThisMonth" type="TransactionConfirmationValidedAtEndOfThisMonthType"/>
+                    <xs:element name="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionBusinessCorrespondence" type="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionBusinessCorrespondenceType"/>
+                    <xs:element name="NetCapitalAtEndOfTheMonth" type="NetCapitalAtEndOfTheMonthType"/>
+                    <xs:element name="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionsBusinessAccountedForTheProportionOfTheCorrespondingNetCapital" type="ToCarryOutSelfEquitySecuritiesAndOTCDerivativesScaleStockOptionsBusinessAccountedForTheProportionOfTheCorrespondingNetCapitalType"/>
+                    <xs:element name="OTCOptionHasSignedByLegalPerson" type="OTCOptionHasSignedByLegalPersonType"/>
+                    <xs:element name="OTCOptionsHaveContractedProducts" type="OTCOptionsHaveContractedProductsType"/>
+                    <xs:element name="OTCOptionsForTheMonthOfTheNewAddLegalPerson" type="OTCOptionsForTheMonthOfTheNewAddLegalPersonType"/>
+                    <xs:element name="OTCOptionsForTheMonthOfTheNewAddProduct" type="OTCOptionsForTheMonthOfTheNewAddProductType"/>
+                    <xs:element name="OTCOptionsLegalPersonInDurationForThisMouth" type="OTCOptionsLegalPersonInDurationForThisMouthType"/>
+                    <xs:element name="OTCOptionsProductsInDurationForThisMouth" type="OTCOptionsProductsInDurationForThisMouthType"/>
+                    <xs:element name="IncomeSwapHasSignedLegalPersonNumber" type="IncomeSwapHasSignedLegalPersonNumberType"/>
+                    <xs:element name="IncomeSwapHasSignedProductNumber" type="IncomeSwapHasSignedProductNumberType"/>
+                    <xs:element name="IncomeSwapForTheMonthOfTheNewAddLegalPerson" type="IncomeSwapForTheMonthOfTheNewAddLegalPersonType"/>
+                    <xs:element name="IncomeSwapForTheMonthOfTheNewAddProduct" type="IncomeSwapForTheMonthOfTheNewAddProductType"/>
+                    <xs:element name="IncomeSwapLegalPersonInDurationForThisMouth" type="IncomeSwapLegalPersonInDurationForThisMouthType"/>
+                    <xs:element name="IncomeSwapProductsInDurationForThisMouth" type="IncomeSwapProductsInDurationForThisMouthType"/>
+                    <xs:element name="OTCStockIndexOptionsWithinTheLastMonthTheExistenceOfScale" type="OTCStockIndexOptionsWithinTheLastMonthTheExistenceOfScaleType"/>
+                    <xs:element name="OTCOptionsWithinIndividualStocksLateLastMonthDurationScale" type="OTCOptionsWithinIndividualStocksLateLastMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsCommoditiesLastMonthDurationScale" type="OTCOptionsCommoditiesLastMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsOtherSubjectLastMonthDurationScale" type="OTCOptionsOtherSubjectLastMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeDomesticStockIndexLastMonthDurationScale" type="RevenueExchangeDomesticStockIndexLastMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeDomesticIndividualStocksLastMonthDurationScale" type="RevenueExchangeDomesticIndividualStocksLastMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeCommoditiesLastMonthDurationScale" type="RevenueExchangeCommoditiesLastMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeOtherSubjectLastMonthDurationScale" type="RevenueExchangeOtherSubjectLastMonthDurationScaleType"/>
+                    <xs:element name="TotalOfLastMonthDurationScale" type="TotalOfLastMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsWithinTheIndexThisMonthOfTheNewScale" type="OTCOptionsWithinTheIndexThisMonthOfTheNewScaleType"/>
+                    <xs:element name="OTCOptionsToAddScaleDomesticStocksInThisMonth" type="OTCOptionsToAddScaleDomesticStocksInThisMonthType"/>
+                    <xs:element name="OTCOptionsCommoditiesTheNewSizeOfTheIncreaseInThisMonth" type="OTCOptionsCommoditiesTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="OTCOptionsOtherSubjectTheNewSizeOfTheIncreaseInThisMonth" type="OTCOptionsOtherSubjectTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="RevenueExchangeDomesticStockIndexTheNewSizeOfTheIncreaseInThisMonth" type="RevenueExchangeDomesticStockIndexTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="RevenueExchangeDomesticIndividualStocksTheNewSizeOfTheIncreaseInThisMonth" type="RevenueExchangeDomesticIndividualStocksTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="RevenueExchangeCommoditiesTheNewSizeOfTheIncreaseInThisMonth" type="RevenueExchangeCommoditiesTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="RevenueExchangeOtherSubjectTheNewSizeOfTheIncreaseInThisMonth" type="RevenueExchangeOtherSubjectTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="TotalOfTheNewSizeOfTheIncreaseInThisMonth" type="TotalOfTheNewSizeOfTheIncreaseInThisMonthType"/>
+                    <xs:element name="OTCOptionsTerminateScaleDomesticStockIndexThisMonth" type="OTCOptionsTerminateScaleDomesticStockIndexThisMonthType"/>
+                    <xs:element name="OTCOptionsTerminateScaleDomesticStocksInThisMonth" type="OTCOptionsTerminateScaleDomesticStocksInThisMonthType"/>
+                    <xs:element name="OTCOptionsCommoditiesTerminationOfTheScaleOfThisMonth" type="OTCOptionsCommoditiesTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="OTCOptionsOtherSubjectTerminationOfTheScaleOfThisMonth" type="OTCOptionsOtherSubjectTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="RevenueExchangeDomesticStockIndexTerminationOfTheScaleOfThisMonth" type="RevenueExchangeDomesticStockIndexTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="RevenueExchangeDomesticIndividualStocksTerminationOfTheScaleOfThisMonth" type="RevenueExchangeDomesticIndividualStocksTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="RevenueExchangeCommoditiesTerminationOfTheScaleOfThisMonth" type="RevenueExchangeCommoditiesTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="RevenueExchangeOtherSubjectTerminationOfTheScaleOfThisMonth" type="RevenueExchangeOtherSubjectTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="TotalOfTerminationOfTheScaleOfThisMonth" type="TotalOfTerminationOfTheScaleOfThisMonthType"/>
+                    <xs:element name="OTCStockIndexOptionsWithinThisMonthOfTheExistenceOfScale" type="OTCStockIndexOptionsWithinThisMonthOfTheExistenceOfScaleType"/>
+                    <xs:element name="OTCOptionsWithinIndividualStocksInThisMonthDurationScale" type="OTCOptionsWithinIndividualStocksInThisMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsCommoditiesInThisMonthDurationScale" type="OTCOptionsCommoditiesInThisMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsOtherSubjectThisMonthDurationScale" type="OTCOptionsOtherSubjectThisMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeDomesticStockIndexThisMonthDurationScale" type="RevenueExchangeDomesticStockIndexThisMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeDomesticIndividualStocksThisMonthDurationScale" type="RevenueExchangeDomesticIndividualStocksThisMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeCommoditiesThisMonthDurationScale" type="RevenueExchangeCommoditiesThisMonthDurationScaleType"/>
+                    <xs:element name="RevenueExchangeOtherSubjectThisMonthDurationScale" type="RevenueExchangeOtherSubjectThisMonthDurationScaleType"/>
+                    <xs:element name="TotalOfThisMonthDurationScale" type="TotalOfThisMonthDurationScaleType"/>
+                    <xs:element name="OTCOptionsStockIndexThisYearCumulativeScaleOfNewTerritory" type="OTCOptionsStockIndexThisYearCumulativeScaleOfNewTerritoryType"/>
+                    <xs:element name="OTCOptionsStockThisYearCumulativeScaleOfNewTerritory" type="OTCOptionsStockThisYearCumulativeScaleOfNewTerritoryType"/>
+                    <xs:element name="OTCOptionsCommoditiesThisYearCumulativeScaleOfNewTerritory" type="OTCOptionsCommoditiesThisYearCumulativeScaleOfNewTerritoryType"/>
+                    <xs:element name="OTCOptionsOtherSubjectThisYearCumulativeScaleOfNewTerritory" type="OTCOptionsOtherSubjectThisYearCumulativeScaleOfNewTerritoryType"/>
+                    <xs:element name="IncomeSwapDomesticStockIndexHasAddedNewScaleInThisYear" type="IncomeSwapDomesticStockIndexHasAddedNewScaleInThisYearType"/>
+                    <xs:element name="IncomeSwapDomesticStockHasAddedNewScaleInThisYear" type="IncomeSwapDomesticStockHasAddedNewScaleInThisYearType"/>
+                    <xs:element name="IncomeSwapCommoditiesIndexHasAddedNewScaleInThisYear" type="IncomeSwapCommoditiesIndexHasAddedNewScaleInThisYearType"/>
+                    <xs:element name="IncomeSwapOtherSubjectIndexHasAddedNewScaleInThisYear" type="IncomeSwapOtherSubjectIndexHasAddedNewScaleInThisYearType"/>
+                    <xs:element name="TotalNewScaleInThisYear" type="TotalNewScaleInThisYearType"/>
+                    <xs:element name="OTCOptionsStockIndexAtTheEndOfLastMonth" type="OTCOptionsStockIndexAtTheEndOfLastMonthType"/>
+                    <xs:element name="OTCOptionsStockAtTheEndOfLastMonth" type="OTCOptionsStockAtTheEndOfLastMonthType"/>
+                    <xs:element name="OTCOptionsCommoditiesAtTheEndOfLastMonth" type="OTCOptionsCommoditiesAtTheEndOfLastMonthType"/>
+                    <xs:element name="OTCOptionsOtherSubjectAtTheEndOfLastMonth" type="OTCOptionsOtherSubjectAtTheEndOfLastMonthType"/>
+                    <xs:element name="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfLastMonth" type="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfLastMonthType"/>
+                    <xs:element name="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfLastMonth" type="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfLastMonthType"/>
+                    <xs:element name="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfLastMonth" type="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfLastMonthType"/>
+                    <xs:element name="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfLastMonth" type="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfLastMonthType"/>
+                    <xs:element name="TotalNumberOfContractsAtTheEndOfLastMonth" type="TotalNumberOfContractsAtTheEndOfLastMonthType"/>
+                    <xs:element name="OTCOptionsStockIndexThisMonthNewDomesticContractNumber" type="OTCOptionsStockIndexThisMonthNewDomesticContractNumberType"/>
+                    <xs:element name="OTCOptionsStockThisMonthNewDomesticContractNumber" type="OTCOptionsStockThisMonthNewDomesticContractNumberType"/>
+                    <xs:element name="OTCOptionsCommoditiesThisMonthNewDomesticContractNumber" type="OTCOptionsCommoditiesThisMonthNewDomesticContractNumberType"/>
+                    <xs:element name="OTCOptionsOtherSubjectThisMonthNewDomesticContractNumber" type="OTCOptionsOtherSubjectThisMonthNewDomesticContractNumberType"/>
+                    <xs:element name="IncomeSwapDomesticStockIndexNewContractInThisMonth" type="IncomeSwapDomesticStockIndexNewContractInThisMonthType"/>
+                    <xs:element name="IncomeSwapDomesticStockNewContractInThisMonth" type="IncomeSwapDomesticStockNewContractInThisMonthType"/>
+                    <xs:element name="IncomeSwapCommoditiesNewContractInThisMonth" type="IncomeSwapCommoditiesNewContractInThisMonthType"/>
+                    <xs:element name="IncomeSwapOtherSubjectNewContractInThisMonth" type="IncomeSwapOtherSubjectNewContractInThisMonthType"/>
+                    <xs:element name="TotalNumberOfNewContractsInThisMonth" type="TotalNumberOfNewContractsInThisMonthType"/>
+                    <xs:element name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockIndexNumber" type="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockIndexNumberType"/>
+                    <xs:element name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockNumber" type="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheStockNumberType"/>
+                    <xs:element name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheCommoditiesNumber" type="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheCommoditiesNumberType"/>
+                    <xs:element name="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheOtherSubjectNumber" type="OTCOptionsThisMonthToTerminateTheContractWithinTheTerritoryOfTheOtherSubjectNumberType"/>
+                    <xs:element name="IncomeSwapDomesticStockIndexTerminatesTheNumberOfContractsThisMonth" type="IncomeSwapDomesticStockIndexTerminatesTheNumberOfContractsThisMonthType"/>
+                    <xs:element name="IncomeSwapDomesticStockTerminatesTheNumberOfContractsThisMonth" type="IncomeSwapDomesticStockTerminatesTheNumberOfContractsThisMonthType"/>
+                    <xs:element name="IncomeSwapCommoditiesTerminatesTheNumberOfContractsThisMonth" type="IncomeSwapCommoditiesTerminatesTheNumberOfContractsThisMonthType"/>
+                    <xs:element name="IncomeSwapOtherSubjectTerminatesTheNumberOfContractsThisMonth" type="IncomeSwapOtherSubjectTerminatesTheNumberOfContractsThisMonthType"/>
+                    <xs:element name="TotalNumberOfContractsTerminatedThisMonth" type="TotalNumberOfContractsTerminatedThisMonthType"/>
+                    <xs:element name="OTCDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonth" type="OTCDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="OTCDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonth" type="OTCDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="OTCCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonth" type="OTCCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="OTCOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonth" type="OTCOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonth" type="IncomeExchangeDomesticStockIndexNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonth" type="IncomeExchangeDomesticStockNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonth" type="IncomeExchangeCommoditiesNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonth" type="IncomeExchangeOtherSubjectNumberOfRemainingContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="TotalNumberOfContractsAtTheEndOfThisMonth" type="TotalNumberOfContractsAtTheEndOfThisMonthType"/>
+                    <xs:element name="OTCOptionsStockIndexCumulativeDomesticNewContractNumberInThisYear" type="OTCOptionsStockIndexCumulativeDomesticNewContractNumberInThisYearType"/>
+                    <xs:element name="OTCOptionsStockCumulativeDomesticNewContractNumberInThisYear" type="OTCOptionsStockCumulativeDomesticNewContractNumberInThisYearType"/>
+                    <xs:element name="OTCOptionsCommoditiesCumulativeDomesticNewContractNumberInThisYear" type="OTCOptionsCommoditiesCumulativeDomesticNewContractNumberInThisYearType"/>
+                    <xs:element name="OTCOptionsOtherSubjectCumulativeDomesticNewContractNumberInThisYear" type="OTCOptionsOtherSubjectCumulativeDomesticNewContractNumberInThisYearType"/>
+                    <xs:element name="IncomeSwapDomesticStockIndexCumulativeNumberOfNewContractsInThisYear" type="IncomeSwapDomesticStockIndexCumulativeNumberOfNewContractsInThisYearType"/>
+                    <xs:element name="IncomeSwapDomesticStockCumulativeNumberOfNewContractsInThisYear" type="IncomeSwapDomesticStockCumulativeNumberOfNewContractsInThisYearType"/>
+                    <xs:element name="IncomeSwapCommoditiesCumulativeNumberOfNewContractsInThisYear" type="IncomeSwapCommoditiesCumulativeNumberOfNewContractsInThisYearType"/>
+                    <xs:element name="IncomeSwapOtherSubjectCumulativeNumberOfNewContractsInThisYear" type="IncomeSwapOtherSubjectCumulativeNumberOfNewContractsInThisYearType"/>
+                    <xs:element name="TotalNumberOfNewContractsInThisYear" type="TotalNumberOfNewContractsInThisYearType"/>
+                    <xs:element name="TotalNominalPrincipalAmountOfSwapThisMonth" type="TotalNominalPrincipalAmountOfSwapThisMonthType"/>
+                    <xs:element name="TotalNominalPrincipalAmountOfSwapLastMonth" type="TotalNominalPrincipalAmountOfSwapLastMonthType"/>
+                    <xs:element name="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeThisMonth" type="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeThisMonthType"/>
+                    <xs:element name="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeLastMonth" type="TheValueOfTheStockSwapInTheCorrespondingPerformanceGuaranteeLastMonthType"/>
+                    <xs:element name="SwapCashCollateralValueThisMonth" type="SwapCashCollateralValueThisMonthType"/>
+                    <xs:element name="SwapCashCollateralValueLastMonth" type="SwapCashCollateralValueLastMonthType"/>
+                    <xs:element name="SwapSecuritiesCollateralValueThisMonth" type="SwapSecuritiesCollateralValueThisMonthType"/>
+                    <xs:element name="SwapSecuritiesCollateralValueLastMonthThisMonth" type="SwapSecuritiesCollateralValueLastMonthThisMonthType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthFull" type="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthFullType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthFull" type="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthFullType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthNet" type="ProportionOfTheOverallPerformanceOfTheSwapBusinessThisMonthNetType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthNet" type="ProportionOfTheOverallPerformanceOfTheSwapBusinessLastMonthNetType"/>
+                    <xs:element name="SwapNumberOfDefaultCustomersAtThisMonthThisMonth" type="SwapNumberOfDefaultCustomersAtThisMonthThisMonthType"/>
+                    <xs:element name="SwapNumberOfDefaultCustomersAtThisMonthLastMonth" type="SwapNumberOfDefaultCustomersAtThisMonthLastMonthType"/>
+                    <xs:element name="SwapDefaultTransactionNumberAtThisMonthThisMonth" type="SwapDefaultTransactionNumberAtThisMonthThisMonthType"/>
+                    <xs:element name="SwapDefaultTransactionNumberAtThisMonthLastMonth" type="SwapDefaultTransactionNumberAtThisMonthLastMonthType"/>
+                    <xs:element name="TotalSwapDefaultCustomerNumberInThisYearThisMonth" type="TotalSwapDefaultCustomerNumberInThisYearThisMonthType"/>
+                    <xs:element name="TotalSwapDefaultCustomerNumberInThisYearLastMonth" type="TotalSwapDefaultCustomerNumberInThisYearLastMonthType"/>
+                    <xs:element name="SwapNumberOfDefaultCustomersInThisYearThisMonth" type="SwapNumberOfDefaultCustomersInThisYearThisMonthType"/>
+                    <xs:element name="SwapNumberOfDefaultCustomersInThisYearLastMonth" type="SwapNumberOfDefaultCustomersInThisYearLastMonthType"/>
+                    <xs:element name="TotalNominalPrincipalAmountOfForwardThisMonth" type="TotalNominalPrincipalAmountOfForwardThisMonthType"/>
+                    <xs:element name="TotalNominalPrincipalAmountOfForwardLastMonth" type="TotalNominalPrincipalAmountOfForwardLastMonthType"/>
+                    <xs:element name="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeThisMonth" type="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeThisMonthType"/>
+                    <xs:element name="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeLastMonth" type="TheValueOfTheStockForwardCorrespondingPerformanceGuaranteeLastMonthType"/>
+                    <xs:element name="ForwardCashCollateralValueThisMonth" type="ForwardCashCollateralValueThisMonthType"/>
+                    <xs:element name="ForwardCashCollateralValueLastMonth" type="ForwardCashCollateralValueLastMonthType"/>
+                    <xs:element name="ForwardSecuritiesCollateralValueThisMonth" type="ForwardSecuritiesCollateralValueThisMonthType"/>
+                    <xs:element name="ForwardSecuritiesCollateralValueLastMonth" type="ForwardSecuritiesCollateralValueLastMonthType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthFull" type="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthFullType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthFull" type="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthFullType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthNet" type="ProportionOfTheOverallPerformanceOfTheForwardBusinessThisMonthNetType"/>
+                    <xs:element name="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthNet" type="ProportionOfTheOverallPerformanceOfTheForwardBusinessLastMonthNetType"/>
+                    <xs:element name="ForwardNumberOfDefaultCustomersAtThisMonthThisMonth" type="ForwardNumberOfDefaultCustomersAtThisMonthThisMonthType"/>
+                    <xs:element name="ForwardNumberOfDefaultCustomersAtThisMonthLastMonth" type="ForwardNumberOfDefaultCustomersAtThisMonthLastMonthType"/>
+                    <xs:element name="ForwardTransactionNumberAtThisMonthThisMonth" type="ForwardTransactionNumberAtThisMonthThisMonthType"/>
+                    <xs:element name="ForwardTransactionNumberAtThisMonthLastMonth" type="ForwardTransactionNumberAtThisMonthLastMonthType"/>
+                    <xs:element name="TotalForwardDefaultCustomerNumberInThisYearThisMonth" type="TotalForwardDefaultCustomerNumberInThisYearThisMonthType"/>
+                    <xs:element name="TotalForwardDefaultCustomerNumberInThisYearLastMonth" type="TotalForwardDefaultCustomerNumberInThisYearLastMonthType"/>
+                    <xs:element name="ForwardNumberOfDefaultCustomersInThisYearThisMonth" type="ForwardNumberOfDefaultCustomersInThisYearThisMonthType"/>
+                    <xs:element name="ForwardNumberOfDefaultCustomersInThisYearLastMonth" type="ForwardNumberOfDefaultCustomersInThisYearLastMonthType"/>
+                    <xs:element name="StockTradingCorrespondsToValueOfCollateralAtEndOfThisMonth" type="StockTradingCorrespondsToValueOfCollateralAtEndOfThisMonthType"/>
+                    <xs:element name="StockTradingCorrespondsToValueOfCollateralAtEndOfLastMonth" type="StockTradingCorrespondsToValueOfCollateralAtEndOfLastMonthType"/>
+                    <xs:element name="CashBalanceAtEndOfThisMonth" type="CashBalanceAtEndOfThisMonthType"/>
+                    <xs:element name="CashBalanceAtEndOfLastMonth" type="CashBalanceAtEndOfLastMonthType"/>
+                    <xs:element name="HoldStockMarketValueAtEndOfThisMonth" type="HoldStockMarketValueAtEndOfThisMonthType"/>
+                    <xs:element name="HoldStockMarketValueAtEndOfLastMonth" type="HoldStockMarketValueAtEndOfLastMonthType"/>
+                    <xs:element name="HoldMarketValueOfBondsAtTheEndOfThisMonth" type="HoldMarketValueOfBondsAtTheEndOfThisMonthType"/>
+                    <xs:element name="HoldMarketValueOfBondsAtTheEndOfLastMonth" type="HoldMarketValueOfBondsAtTheEndOfLastMonthType"/>
+                    <xs:element name="OwnedAssetManagementProductsAtTheEndOfThisMonth" type="OwnedAssetManagementProductsAtTheEndOfThisMonthType"/>
+                    <xs:element name="OwnedAssetManagementProductsAtTheEndOfLastMonth" type="OwnedAssetManagementProductsAtTheEndOfLastMonthType"/>
+                    <xs:element name="OwnedBankFinanceAtTheEndOfThisMonth" type="OwnedBankFinanceAtTheEndOfThisMonthType"/>
+                    <xs:element name="OwnedBankFinanceAtTheEndOfLastMonth" type="OwnedBankFinanceAtTheEndOfLastMonthType"/>
+                    <xs:element name="HoldTrustProductAtTheEndOfThisMonth" type="HoldTrustProductAtTheEndOfThisMonthType"/>
+                    <xs:element name="HoldTrustProductAtTheEndOfLastMonth" type="HoldTrustProductAtTheEndOfLastMonthType"/>
+                    <xs:element name="InsuranceProductsAreHeldAtTheEndOfThisMonth" type="InsuranceProductsAreHeldAtTheEndOfThisMonthType"/>
+                    <xs:element name="InsuranceProductsAreHeldAtTheEndOfLastMonth" type="InsuranceProductsAreHeldAtTheEndOfLastMonthType"/>
+                    <xs:element name="HoldOtherProductsAtTheEndOfThisMonth" type="HoldOtherProductsAtTheEndOfThisMonthType"/>
+                    <xs:element name="HoldOtherProductsAtTheEndOfLastMonth" type="HoldOtherProductsAtTheEndOfLastMonthType"/>
+                    <xs:element name="SettledSwapItemsAtThisMonth" type="SettledSwapItemsAtThisMonthType"/>
+                    <xs:element name="SettledSwapTransactionInvolvesNotionalPrincipalAtThisMonth" type="SettledSwapTransactionInvolvesNotionalPrincipalAtThisMonthType"/>
+                    <xs:element name="SwapIncomeCashFlow" type="SwapIncomeCashFlowType"/>
+                    <xs:element name="SwapExpensesCashFlow" type="SwapExpensesCashFlowType"/>
+                    <xs:element name="CashFlowCorrespondingToNetIncomeOnSwapMargin" type="CashFlowCorrespondingToNetIncomeOnSwapMarginType"/>
+                    <xs:element name="SwapHedgeCost" type="SwapHedgeCostType"/>
+                    <xs:element name="SettledOptionItemsAtThisMonth" type="SettledOptionItemsAtThisMonthType"/>
+                    <xs:element name="SettledOptionTransactionInvolvesNotionalPrincipalAtThisMonth" type="SettledOptionTransactionInvolvesNotionalPrincipalAtThisMonthType"/>
+                    <xs:element name="OptionPremiumIncome" type="OptionPremiumIncomeType"/>
+                    <xs:element name="OptionHedgeCost" type="OptionHedgeCostType"/>
+                    <xs:element name="SettledForwardItemsAtThisMonth" type="SettledForwardItemsAtThisMonthType"/>
+                    <xs:element name="SettledForwardTransactionInvolvesNotionalPrincipalAtThisMonth" type="SettledForwardTransactionInvolvesNotionalPrincipalAtThisMonthType"/>
+                    <xs:element name="ForwardIncomeCashFlow" type="ForwardIncomeCashFlowType"/>
+                    <xs:element name="ForwardExpensesCashFlow" type="ForwardExpensesCashFlowType"/>
+                    <xs:element name="ForwardHedgeCost" type="ForwardHedgeCostType"/>
+                    <xs:element name="BalanceOfSwapRealizedGainsAndLossesAtThisMonth" type="BalanceOfSwapRealizedGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfOptionRealizedGainsAndLossesAtThisMonth" type="BalanceOfOptionRealizedGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfForwardRealizedGainsAndLossesAtThisMonth" type="BalanceOfForwardRealizedGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfSwapRealizedGainsAndLossesAtThisYear" type="BalanceOfSwapRealizedGainsAndLossesAtThisYearType"/>
+                    <xs:element name="BalanceOfOptionRealizedGainsAndLossesAtThisYear" type="BalanceOfOptionRealizedGainsAndLossesAtThisYearType"/>
+                    <xs:element name="BalanceOfForwardRealizedGainsAndLossesAtThisYear" type="BalanceOfForwardRealizedGainsAndLossesAtThisYearType"/>
+                    <xs:element name="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisMonth" type="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisMonthType"/>
+                    <xs:element name="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisMonth" type="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisMonthType"/>
+                    <xs:element name="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisMonth" type="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisMonthType"/>
+                    <xs:element name="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisYear" type="BalanceOfSwapChangedGainsAndLossesInFairValueAtThisYearType"/>
+                    <xs:element name="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisYear" type="BalanceOfOptionChangedGainsAndLossesInFairValueAtThisYearType"/>
+                    <xs:element name="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisYear" type="BalanceOfForwardChangedGainsAndLossesInFairValueAtThisYearType"/>
+                    <xs:element name="BalanceOfSwapTotalGainsAndLossesAtThisMonth" type="BalanceOfSwapTotalGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfOptionTotalGainsAndLossesAtThisMonth" type="BalanceOfOptionTotalGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfForwardTotalGainsAndLossesAtThisMonth" type="BalanceOfForwardTotalGainsAndLossesAtThisMonthType"/>
+                    <xs:element name="BalanceOfSwapTotalGainsAndLossesAtThisYear" type="BalanceOfSwapTotalGainsAndLossesAtThisYearType"/>
+                    <xs:element name="BalanceOfOptionTotalGainsAndLossesAtThisYear" type="BalanceOfOptionTotalGainsAndLossesAtThisYearType"/>
+                    <xs:element name="BalanceOfForwardTotalGainsAndLossesAtThisYear" type="BalanceOfForwardTotalGainsAndLossesAtThisYearType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="IncreaseBusinessDetailsThisMonthTuple" nillable="true" type="IncreaseBusinessDetailsThisMonthTupleType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="InventoryBusinessDetailsAtTheEndOfThisMonth" type="InventoryBusinessDetailsAtTheEndOfThisMonthType"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="TargetCaseAndHedgeTuple" nillable="true" type="TargetCaseAndHedgeTupleType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

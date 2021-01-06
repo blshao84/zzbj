@@ -1,0 +1,6005 @@
+{
+  "jsonrpc": "2.0",
+  "id": "1",
+  "result": [
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "ProcessInstanceData",
+      "method": "wkProcessInstanceFormGet",
+      "service": "workflow-service",
+      "description": "查询流程实例审批单",
+      "retName": "ProcessInstanceData",
+      "return-info": [
+        {
+          "name": "currentNodeDTO",
+          "description": "审批当前节点",
+          "type": "CurrentNodeDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "taskId",
+              "description": "当前任务ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "节点名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskType",
+              "description": "节点类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "users",
+              "description": "可审批人员",
+              "type": "List<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processData",
+          "description": "流程实例信息",
+          "type": "ProcessData",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "processInstanceDTO",
+          "description": "流程实例信息",
+          "type": "ProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "initiator",
+              "description": "操作人",
+              "type": "UserDTO",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "roles",
+                  "description": "角色列表",
+                  "type": "Collection<String>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": true
+                },
+                {
+                  "name": "userName",
+                  "description": "用户名",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processInstanceId",
+              "description": "流程实例唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processInstanceStatusEnum",
+              "description": "流程实例状态",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "ProcessInstanceStatusEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_ABANDON",
+                  "description": "流程实例废弃",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_FINISH",
+                  "description": "流程实例结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_UNFINISHED",
+                  "description": "流程实例未结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "code",
+                  "description": "code",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processName",
+              "description": "流程名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processSequenceNum",
+              "description": "流程序号",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "startTime",
+              "description": "开始时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "subject",
+              "description": "标题",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "taskHistoryDTOList",
+          "description": "审批历史",
+          "type": "List<TaskHistoryDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "comment",
+              "description": "留言",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "operateTime",
+              "description": "操作时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "operation",
+              "description": "操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "节点名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userName",
+              "description": "操作人名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "taskList",
+          "description": "节点信息与审批组信息",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": [
+            {
+              "name": "actionClass",
+              "description": "执行class",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "approveGroupIdList",
+              "description": "审批组ID列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整位置",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "序号",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "节点名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskType",
+              "description": "节点类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ]
+        }
+      ],
+      "retType": "ProcessDTO",
+      "method": "wkProcessModify",
+      "service": "workflow-service",
+      "description": "自定义流程 1. 检查原有的流程定义是否有正在进行中的流程实例 2. 创建新的流程图并部署  2.1 持久化taskNode  2.2 持久化并关联相应的filter 2.3 根据taskNode生成bpmn文件并部署3. 节点关联审批组",
+      "retName": "ProcessDTO",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "String",
+      "method": "wkApproveGroupDelete",
+      "service": "workflow-service",
+      "description": "删除审批组",
+      "retName": "String",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "attachmentId",
+          "description": "附件唯一标识",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        }
+      ],
+      "retType": "String",
+      "method": "wkAttachmentDelete",
+      "service": "workflow-service",
+      "description": "删除附件",
+      "retName": "AttachmentDTO",
+      "return-info": [
+        {
+          "name": "attachmentCode",
+          "description": "attachmentCode",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "attachmentId",
+          "description": "附件唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentName",
+          "description": "附件名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentPath",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "createdBy",
+          "description": "创建人",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "fileType",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "remark",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "version",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkApproveGroupList",
+      "service": "workflow-service",
+      "description": "查询审批组列表",
+      "retName": "Collection<ApproveGroupDTO>",
+      "return-info": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "userList",
+          "description": "审批组用户列表",
+          "type": "Collection<UserApproveGroupDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "departmentId",
+              "description": "部门ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "nickName",
+              "description": "昵称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userApproveGroupId",
+              "description": "审批组用户唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "username",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkProcessInstanceAllClear",
+      "service": "workflow-service",
+      "description": "清空流程实例",
+      "retName": "Collection<ProcessDTO>",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程Id",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "taskList",
+          "description": "任务列表",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": [
+            {
+              "name": "approveGroupIdList",
+              "description": "审批组ID列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ]
+        }
+      ],
+      "retType": "ProcessDTO",
+      "method": "wkTaskApproveGroupBind",
+      "service": "workflow-service",
+      "description": "绑定审批组与流程节点",
+      "retName": "ProcessDTO",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceUserPerspective",
+          "description": "流程实例类型: STARTED_BY_ME, EXECUTED_BY_ME",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessInstanceList",
+      "service": "workflow-service",
+      "description": "列出未完成的流程实例",
+      "retName": "Collection<ProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "initiator",
+          "description": "操作人",
+          "type": "UserDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "roles",
+              "description": "角色列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "userName",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processInstanceStatusEnum",
+          "description": "流程实例状态",
+          "type": "ProcessInstanceStatusEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "ProcessInstanceStatusEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "PROCESS_ABANDON",
+              "description": "流程实例废弃",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_FINISH",
+              "description": "流程实例结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_UNFINISHED",
+              "description": "流程实例未结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "code",
+              "description": "code",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processSequenceNum",
+          "description": "流程序号",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "subject",
+          "description": "标题",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "configList",
+          "description": "配置参数",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": [
+            {
+              "name": "configId",
+              "description": "configId",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "status",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        }
+      ],
+      "retType": "String",
+      "method": "wkProcessConfigModify",
+      "service": "workflow-service",
+      "description": "更新流程配置",
+      "retName": "String",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "status",
+          "description": "流程状态",
+          "type": "java.lang.Boolean",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "ProcessDTO",
+      "method": "wkProcessStatusModify",
+      "service": "workflow-service",
+      "description": "更新流程状态",
+      "retName": "Collection<ProcessDTO>",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "流程实例ID",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "HistoricProcessInstanceData",
+      "method": "wkHistoricProcessInstanceFormGet",
+      "service": "workflow-service",
+      "description": "查询历史流程审批单详细数据",
+      "retName": "Collection<HistoricProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "historicProcessInstanceDTO",
+          "description": "历史审批单",
+          "type": "HistoricProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "deleteReason",
+              "description": "删除原因",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "endTime",
+              "description": "结束时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "operator",
+              "description": "操作人",
+              "type": "UserDTO",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "roles",
+                  "description": "角色列表",
+                  "type": "Collection<String>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": true
+                },
+                {
+                  "name": "userName",
+                  "description": "用户名",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processInstanceId",
+              "description": "流程实例ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processName",
+              "description": "流程名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processSequenceNum",
+              "description": "流程序号",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "startTime",
+              "description": "开始时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "subject",
+              "description": "标题",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processData",
+          "description": "审批数据",
+          "type": "HistoricProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskHistoryDTOList",
+          "description": "审批操作历史",
+          "type": "List<TaskHistoryDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "comment",
+              "description": "留言",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "operateTime",
+              "description": "操作时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "operation",
+              "description": "操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "节点名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userName",
+              "description": "操作人名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "page",
+          "description": "页码",
+          "type": "java.lang.Integer",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "pageSize",
+          "description": "页距",
+          "type": "java.lang.Integer",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "likes",
+          "description": "模糊查询参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "value",
+              "description": "value",
+              "type": "Object",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "params",
+          "description": "字符参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "value",
+              "description": "value",
+              "type": "Object",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "dates",
+          "description": "日期参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "endDate",
+              "description": "endDate",
+              "type": "LocalDate",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "startDate",
+              "description": "startDate",
+              "type": "LocalDate",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "sortOrder",
+          "description": "排序配置",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        },
+        {
+          "name": "sortField",
+          "description": "排序参数",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        }
+      ],
+      "retType": "RpcResponseListPaged",
+      "method": "wkProcessIndexListPaged",
+      "service": "workflow-service",
+      "description": "查询产品列表",
+      "retName": "Collection<ContractProcessIndexDTO>",
+      "return-info": [
+        {
+          "name": "customization",
+          "description": "customization",
+          "type": "CustomizationEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "holderType",
+          "description": "holderType",
+          "type": "HolderTypeEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "processInstanceId",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "processName",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "productCode",
+          "description": "productCode",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "productShortDescription",
+          "description": "productShortDescription",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "status",
+          "description": "status",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "subscriptionDate",
+          "description": "subscriptionDate",
+          "type": "LocalDate",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "taskName",
+          "description": "taskName",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkTaskNameList",
+      "service": "workflow-service",
+      "description": "查询任务名称列表",
+      "retName": "Collection<String>",
+      "return-info": []
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkHistoricProcessInstanceList",
+      "service": "workflow-service",
+      "description": "查询历史流程审批单列表",
+      "retName": "Collection<HistoricProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "deleteReason",
+          "description": "删除原因",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "endTime",
+          "description": "结束时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "operator",
+          "description": "操作人",
+          "type": "UserDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "roles",
+              "description": "角色列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "userName",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例ID",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processSequenceNum",
+          "description": "流程序号",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "subject",
+          "description": "标题",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "taskId",
+          "description": "任务ID",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "ctlProcessData",
+          "description": "审批数据.不同节点传入参数不同,留言(comment),通过(confirmed),废弃(abandon)",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "businessProcessData",
+          "description": "表单数据.表单数据为外部传入数据,结构由传入定制",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkTaskComplete",
+      "service": "workflow-service",
+      "description": "推进或回退任务",
+      "retName": "Collection<TaskInstanceDTO>",
+      "return-info": [
+        {
+          "name": "processInstanceDTO",
+          "description": "流程实例信息",
+          "type": "ProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "initiator",
+              "description": "操作人",
+              "type": "UserDTO",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "roles",
+                  "description": "角色列表",
+                  "type": "Collection<String>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": true
+                },
+                {
+                  "name": "userName",
+                  "description": "用户名",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processInstanceId",
+              "description": "流程实例唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processInstanceStatusEnum",
+              "description": "流程实例状态",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "ProcessInstanceStatusEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_ABANDON",
+                  "description": "流程实例废弃",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_FINISH",
+                  "description": "流程实例结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_UNFINISHED",
+                  "description": "流程实例未结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "code",
+                  "description": "code",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processName",
+              "description": "流程名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processSequenceNum",
+              "description": "流程序号",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "startTime",
+              "description": "开始时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "subject",
+              "description": "标题",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "taskId",
+          "description": "节点唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskName",
+          "description": "节点名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskType",
+          "description": "节点类型",
+          "type": "TaskTypeEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "TaskTypeEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "COUNTER_SIGN_DATA",
+              "description": "会签",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "INPUT_DATA",
+              "description": "录入",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "MODIFY_DATA",
+              "description": "修改",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "NONE",
+              "description": "无",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "REVIEW_DATA",
+              "description": "复核",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "alias",
+              "description": "alias",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkProcessInstanceClear",
+      "service": "workflow-service",
+      "description": "清除未完成的流程实例",
+      "retName": "Collection<ProcessDTO>",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "likes",
+          "description": "模糊查询参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "value",
+              "description": "value",
+              "type": "Object",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "params",
+          "description": "字符参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "value",
+              "description": "value",
+              "type": "Object",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "dates",
+          "description": "日期参数",
+          "type": "java.util.List",
+          "required": false,
+          "class-info": [
+            {
+              "name": "endDate",
+              "description": "endDate",
+              "type": "LocalDate",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "path",
+              "description": "path",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "startDate",
+              "description": "startDate",
+              "type": "LocalDate",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ]
+        },
+        {
+          "name": "sortOrder",
+          "description": "排序配置",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        },
+        {
+          "name": "sortField",
+          "description": "排序参数",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessIndexList",
+      "service": "workflow-service",
+      "description": "查询产品列表",
+      "retName": "Collection<ContractProcessIndexDTO>",
+      "return-info": [
+        {
+          "name": "customization",
+          "description": "customization",
+          "type": "CustomizationEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "holderType",
+          "description": "holderType",
+          "type": "HolderTypeEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "processInstanceId",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "processName",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "productCode",
+          "description": "productCode",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "productShortDescription",
+          "description": "productShortDescription",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "status",
+          "description": "status",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "subscriptionDate",
+          "description": "subscriptionDate",
+          "type": "LocalDate",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "taskName",
+          "description": "taskName",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkProcessList",
+      "service": "workflow-service",
+      "description": "查询流程列表",
+      "retName": "Collection<ProcessDTO>",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkApproveGroupModify",
+      "service": "workflow-service",
+      "description": "更新审批组",
+      "retName": "Collection<ApproveGroupDTO>",
+      "return-info": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "userList",
+          "description": "审批组用户列表",
+          "type": "Collection<UserApproveGroupDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "departmentId",
+              "description": "部门ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "nickName",
+              "description": "昵称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userApproveGroupId",
+              "description": "审批组用户唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "username",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkTaskInfoList",
+      "service": "workflow-service",
+      "description": "获取待办事项",
+      "retName": "Collection<TaskInstanceDTO>",
+      "return-info": [
+        {
+          "name": "processInstanceDTO",
+          "description": "流程实例信息",
+          "type": "ProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "initiator",
+              "description": "操作人",
+              "type": "UserDTO",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "roles",
+                  "description": "角色列表",
+                  "type": "Collection<String>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": true
+                },
+                {
+                  "name": "userName",
+                  "description": "用户名",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processInstanceId",
+              "description": "流程实例唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processInstanceStatusEnum",
+              "description": "流程实例状态",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "ProcessInstanceStatusEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_ABANDON",
+                  "description": "流程实例废弃",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_FINISH",
+                  "description": "流程实例结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_UNFINISHED",
+                  "description": "流程实例未结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "code",
+                  "description": "code",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processName",
+              "description": "流程名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processSequenceNum",
+              "description": "流程序号",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "startTime",
+              "description": "开始时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "subject",
+              "description": "标题",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "taskId",
+          "description": "节点唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskName",
+          "description": "节点名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskType",
+          "description": "节点类型",
+          "type": "TaskTypeEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "TaskTypeEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "COUNTER_SIGN_DATA",
+              "description": "会签",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "INPUT_DATA",
+              "description": "录入",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "MODIFY_DATA",
+              "description": "修改",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "NONE",
+              "description": "无",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "REVIEW_DATA",
+              "description": "复核",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "alias",
+              "description": "alias",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "productCode",
+          "description": "产品代码",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        },
+        {
+          "name": "productDescription",
+          "description": "产品全称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "productShortDescription",
+          "description": "产品简称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Boolean",
+      "method": "wkValidProductValueExist",
+      "service": "workflow-service",
+      "description": "校验是否存在相同的产品代码/产品简称/产品全称",
+      "retName": "result",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "userList",
+          "description": "审批组用户列表.Collection<String>",
+          "type": "java.util.Collection",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkApproveGroupUserListModify",
+      "service": "workflow-service",
+      "description": "更新审批组用户",
+      "retName": "Collection<ApproveGroupDTO>",
+      "return-info": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "userList",
+          "description": "审批组用户列表",
+          "type": "Collection<UserApproveGroupDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "departmentId",
+              "description": "部门ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "nickName",
+              "description": "昵称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userApproveGroupId",
+              "description": "审批组用户唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "username",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "流程实例ID",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "business",
+          "description": "业务数据",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "update",
+          "description": "更新数据",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Boolean",
+      "method": "wkModifyProcessInstanceVariable",
+      "service": "workflow-service",
+      "description": "更新流程实例参数",
+      "retName": "result",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessConfigList",
+      "service": "workflow-service",
+      "description": "查询流程配置列表",
+      "retName": "Collection<ProcessConfigDTO>",
+      "return-info": [
+        {
+          "name": "configId",
+          "description": "配置唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "configName",
+          "description": "配置名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "status",
+          "description": "状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessInstanceTerminate",
+      "service": "workflow-service",
+      "description": "废弃流程",
+      "retName": "Collection<ProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "initiator",
+          "description": "操作人",
+          "type": "UserDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "roles",
+              "description": "角色列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "userName",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processInstanceStatusEnum",
+          "description": "流程实例状态",
+          "type": "ProcessInstanceStatusEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "ProcessInstanceStatusEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "PROCESS_ABANDON",
+              "description": "流程实例废弃",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_FINISH",
+              "description": "流程实例结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_UNFINISHED",
+              "description": "流程实例未结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "code",
+              "description": "code",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processSequenceNum",
+          "description": "流程序号",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "subject",
+          "description": "标题",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "taskNames",
+          "description": "任务名称列表",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkTaskListByTaskName",
+      "service": "workflow-service",
+      "description": "获取待办事项",
+      "retName": "Collection<TaskInstanceDTO>",
+      "return-info": [
+        {
+          "name": "processInstanceDTO",
+          "description": "流程实例信息",
+          "type": "ProcessInstanceDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "initiator",
+              "description": "操作人",
+              "type": "UserDTO",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "roles",
+                  "description": "角色列表",
+                  "type": "Collection<String>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": true
+                },
+                {
+                  "name": "userName",
+                  "description": "用户名",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processInstanceId",
+              "description": "流程实例唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processInstanceStatusEnum",
+              "description": "流程实例状态",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "ProcessInstanceStatusEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_ABANDON",
+                  "description": "流程实例废弃",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_FINISH",
+                  "description": "流程实例结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "PROCESS_UNFINISHED",
+                  "description": "流程实例未结束",
+                  "type": "ProcessInstanceStatusEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "code",
+                  "description": "code",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            },
+            {
+              "name": "processName",
+              "description": "流程名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processSequenceNum",
+              "description": "流程序号",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "startTime",
+              "description": "开始时间",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "subject",
+              "description": "标题",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "taskId",
+          "description": "节点唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskName",
+          "description": "节点名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskType",
+          "description": "节点类型",
+          "type": "TaskTypeEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "TaskTypeEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "COUNTER_SIGN_DATA",
+              "description": "会签",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "INPUT_DATA",
+              "description": "录入",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "MODIFY_DATA",
+              "description": "修改",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "NONE",
+              "description": "无",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "REVIEW_DATA",
+              "description": "复核",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "alias",
+              "description": "alias",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkAttachmentList",
+      "service": "workflow-service",
+      "description": "查询附件列表",
+      "retName": "Collection<AttachmentDTO>",
+      "return-info": [
+        {
+          "name": "attachmentCode",
+          "description": "attachmentCode",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "attachmentId",
+          "description": "附件唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentName",
+          "description": "附件名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentPath",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "createdBy",
+          "description": "创建人",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "fileType",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "remark",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "version",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "productCode",
+          "description": "产品代码",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkTaskListByProductCode",
+      "service": "workflow-service",
+      "description": "查询任务名称列表",
+      "retName": "Collection<String>",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "processData",
+          "description": "流程业务数据.仅用于数据保存,无固定格式",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Object",
+      "method": "wkProcessInstanceCreate",
+      "service": "workflow-service",
+      "description": "创建流程实例",
+      "retName": "Object",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceUserPerspective",
+          "description": "流程实例类型: STARTED_BY_ME, EXECUTED_BY_ME",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "processInstanceStatus",
+          "description": "流程实例状态列表",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessInstanceComplexList",
+      "service": "workflow-service",
+      "description": "查询相关的流程实例列表",
+      "retName": "Collection<ProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "initiator",
+          "description": "操作人",
+          "type": "UserDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "roles",
+              "description": "角色列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "userName",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processInstanceStatusEnum",
+          "description": "流程实例状态",
+          "type": "ProcessInstanceStatusEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "ProcessInstanceStatusEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "PROCESS_ABANDON",
+              "description": "流程实例废弃",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_FINISH",
+              "description": "流程实例结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_UNFINISHED",
+              "description": "流程实例未结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "code",
+              "description": "code",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processSequenceNum",
+          "description": "流程序号",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "subject",
+          "description": "标题",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [],
+      "retType": "Collection",
+      "method": "wkProcessAllClear",
+      "service": "workflow-service",
+      "description": "清空流程列表",
+      "retName": "Collection<ProcessDTO>",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程定义名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "data",
+          "description": "触发数据.随流程不同变更",
+          "type": "java.util.Map",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Boolean",
+      "method": "wkValidProcessCanStart",
+      "service": "workflow-service",
+      "description": "判断是否可发起流程",
+      "retName": "Boolean",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkProcessInstanceListByProcessName",
+      "service": "workflow-service",
+      "description": "列出未完成的流程实例",
+      "retName": "Collection<ProcessInstanceDTO>",
+      "return-info": [
+        {
+          "name": "initiator",
+          "description": "操作人",
+          "type": "UserDTO",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "roles",
+              "description": "角色列表",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "userName",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processInstanceStatusEnum",
+          "description": "流程实例状态",
+          "type": "ProcessInstanceStatusEnum",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "$VALUES",
+              "description": "$VALUES",
+              "type": "ProcessInstanceStatusEnum[]",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            },
+            {
+              "name": "PROCESS_ABANDON",
+              "description": "流程实例废弃",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_FINISH",
+              "description": "流程实例结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "PROCESS_UNFINISHED",
+              "description": "流程实例未结束",
+              "type": "ProcessInstanceStatusEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": false
+            },
+            {
+              "name": "code",
+              "description": "code",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "possibleSubClassFieldCollectionMap": {},
+              "collection": false
+            }
+          ],
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processSequenceNum",
+          "description": "流程序号",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "startTime",
+          "description": "开始时间",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "subject",
+          "description": "标题",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "processData",
+          "description": "流程业务数据.仅用于数据保存,无固定格式",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "Object",
+      "method": "wkProcessInstanceCreateBatch",
+      "service": "workflow-service",
+      "description": "批量创建流程实例",
+      "retName": "Object",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "java.lang.String",
+          "required": false,
+          "class-info": []
+        }
+      ],
+      "retType": "Collection",
+      "method": "wkApproveGroupCreate",
+      "service": "workflow-service",
+      "description": "创建审批组",
+      "retName": "Collection<ApproveGroupDTO>",
+      "return-info": [
+        {
+          "name": "approveGroupId",
+          "description": "审批组唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "approveGroupName",
+          "description": "审批组名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "description",
+          "description": "审批组描述",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "userList",
+          "description": "审批组用户列表",
+          "type": "Collection<UserApproveGroupDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "departmentId",
+              "description": "部门ID",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "nickName",
+              "description": "昵称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "userApproveGroupId",
+              "description": "审批组用户唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "username",
+              "description": "用户名",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "ProcessDTO",
+      "method": "wkProcessGet",
+      "service": "workflow-service",
+      "description": "根据流程名称获取流程",
+      "retName": "ProcessDTO",
+      "return-info": [
+        {
+          "name": "processConfigs",
+          "description": "流程配置列表",
+          "type": "Collection<ProcessConfigDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "configId",
+              "description": "配置唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "configName",
+              "description": "配置名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "processId",
+              "description": "流程唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "status",
+              "description": "状态",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            }
+          ],
+          "collection": true
+        },
+        {
+          "name": "processId",
+          "description": "流程唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processName",
+          "description": "流程名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "processStartableFilters",
+          "description": "流程是否可发起过滤器",
+          "type": "Collection<String>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": true
+        },
+        {
+          "name": "status",
+          "description": "流程启用状态",
+          "type": "Boolean",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "taskTypeCompletableFilters",
+          "description": "任务类型可提交过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "taskTypeReadableFilters",
+          "description": "任务类型可读过滤器",
+          "type": "Map<TaskTypeEnum, Collection<String>>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "tasks",
+          "description": "流程任务列表",
+          "type": "Collection<TaskDTO>",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [
+            {
+              "name": "approveGroups",
+              "description": "审批组列表",
+              "type": "Collection<ApproveGroupDTO>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "approveGroupId",
+                  "description": "审批组唯一标识",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "approveGroupName",
+                  "description": "审批组名称",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "description",
+                  "description": "审批组描述",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "collection": false
+                },
+                {
+                  "name": "userList",
+                  "description": "审批组用户列表",
+                  "type": "Collection<UserApproveGroupDTO>",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [
+                    {
+                      "name": "departmentId",
+                      "description": "部门ID",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "nickName",
+                      "description": "昵称",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "userApproveGroupId",
+                      "description": "审批组用户唯一标识",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    },
+                    {
+                      "name": "username",
+                      "description": "用户名",
+                      "type": "String",
+                      "ignore": false,
+                      "order": 1,
+                      "collection": false
+                    }
+                  ],
+                  "collection": true
+                }
+              ],
+              "collection": true
+            },
+            {
+              "name": "operation",
+              "description": "可调整",
+              "type": "Boolean",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "sequence",
+              "description": "排序",
+              "type": "Integer",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskAction",
+              "description": "任务操作",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskCompletableFilters",
+              "description": "任务提交过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskId",
+              "description": "任务唯一标识",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskName",
+              "description": "任务名称",
+              "type": "String",
+              "ignore": false,
+              "order": 1,
+              "collection": false
+            },
+            {
+              "name": "taskReadableFilters",
+              "description": "任务可读过滤器",
+              "type": "Collection<String>",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [],
+              "collection": true
+            },
+            {
+              "name": "taskType",
+              "description": "任务类型",
+              "type": "TaskTypeEnum",
+              "ignore": false,
+              "order": 1,
+              "subClassFieldList": [
+                {
+                  "name": "$VALUES",
+                  "description": "$VALUES",
+                  "type": "TaskTypeEnum[]",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                },
+                {
+                  "name": "COUNTER_SIGN_DATA",
+                  "description": "会签",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "INPUT_DATA",
+                  "description": "录入",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "MODIFY_DATA",
+                  "description": "修改",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "NONE",
+                  "description": "无",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "REVIEW_DATA",
+                  "description": "复核",
+                  "type": "TaskTypeEnum",
+                  "ignore": false,
+                  "order": 1,
+                  "subClassFieldList": [],
+                  "collection": false
+                },
+                {
+                  "name": "alias",
+                  "description": "alias",
+                  "type": "String",
+                  "ignore": false,
+                  "order": 1,
+                  "possibleSubClassFieldCollectionMap": {},
+                  "collection": false
+                }
+              ],
+              "collection": false
+            }
+          ],
+          "collection": true
+        }
+      ]
+    },
+    {
+      "args": [
+        {
+          "name": "tasks",
+          "description": "任务组合",
+          "type": "java.util.List",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "void",
+      "method": "wkTaskCompleteBatch",
+      "service": "workflow-service",
+      "description": "批量推进或回退任务",
+      "retName": "result",
+      "return-info": []
+    },
+    {
+      "args": [
+        {
+          "name": "processInstanceId",
+          "description": "附件唯一标识",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "username",
+          "description": "用户名称",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "fileType",
+          "description": "附件类型",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "remark",
+          "description": "评论",
+          "type": "java.lang.String",
+          "required": true,
+          "class-info": []
+        },
+        {
+          "name": "file",
+          "description": "文件",
+          "type": "org.springframework.web.multipart.MultipartFile",
+          "required": true,
+          "class-info": []
+        }
+      ],
+      "retType": "AttachmentDTO",
+      "method": "wkAttachmentUpload",
+      "service": "workflow-service",
+      "description": "创建与更新附件",
+      "retName": "AttachmentDTO",
+      "return-info": [
+        {
+          "name": "attachmentCode",
+          "description": "attachmentCode",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "possibleSubClassFieldCollectionMap": {},
+          "collection": false
+        },
+        {
+          "name": "attachmentId",
+          "description": "附件唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentName",
+          "description": "附件名称",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "attachmentPath",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "createdBy",
+          "description": "创建人",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "fileType",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "subClassFieldList": [],
+          "collection": false
+        },
+        {
+          "name": "processInstanceId",
+          "description": "流程实例唯一标识",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "remark",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        },
+        {
+          "name": "version",
+          "description": "附件路径",
+          "type": "String",
+          "ignore": false,
+          "order": 1,
+          "collection": false
+        }
+      ]
+    }
+  ]
+}
