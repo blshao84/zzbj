@@ -26,7 +26,7 @@ jobs:
       - name: Set up NPM
         uses: actions/setup-node@v2-beta
         with:
-        node-version: '12'
+          node-version: '12'
       - name: Install PM2
         run: npm install pm2 -g
       - name: Set up JDK 1.8
