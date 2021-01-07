@@ -167,6 +167,6 @@ project.task("installLocal") {
 }
 
 task smokeTest(type:Exec) {
-    workingDir 'csi-trans'
+    workingDir 'csi-trans/script'
     commandLine './runSmoke.sh'
 }
