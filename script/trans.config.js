@@ -4,9 +4,9 @@ module.exports = {
         script: 'java',
         args: ['-jar', '-Xms128m', '-Xmx2g', 'bin/center-1.0.jar'],
         env: {
-            FILE_ANSWER_LOCATION: '/home/tongyu/trans/answer-document',
-            FILE_BASE_LOCATION: '/home/tongyu/trans/base-document',
-            FILE_ATTACHMENT_LOCATION: '/home/tongyu/trans/attachment-document'
+            FILE_ANSWER_LOCATION: './answer-document',
+            FILE_BASE_LOCATION: './base-document',
+            FILE_ATTACHMENT_LOCATION: './attachment-document'
         }
     }]
 };
