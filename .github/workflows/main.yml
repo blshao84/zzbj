@@ -75,7 +75,7 @@ jobs:
           pip install pyyaml
           pip install xmldiff
           pip install xmltodict
-          pip install xlrd
+          pip install xlrd==1.2.0
           pip install xlwings
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
