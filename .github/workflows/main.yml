@@ -70,6 +70,8 @@ jobs:
         run: ./gradlew installLocal
       - name: Install Docker and Docker Machine
         run: |
+          mkdir -p ~/.docker/machine/cache
+          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
           brew install docker docker-machine
           docker-machine create --driver virtualbox default
           docker-machine env default
@@ -81,7 +83,7 @@ jobs:
           docker ps -a
       - name: Import DDL
         run: |
-          cat trans-schemas.sql | docker-machine ssh default psql -U trans
+          cat trans-schemas.sql | docker-machine ssh default su - postgres
           sleep 5
           cat commerce_model.sql | docker-machine ssh default psql -U trans
           sleep 5
