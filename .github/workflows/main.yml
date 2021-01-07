@@ -22,9 +22,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: harmon758/postgresql-action@v1
-        with:
-          postgresql version: '11'
+      - name: Install docker
+        run: |
+          mkdir -p ~/.docker/machine/cache
+          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
+          brew install docker docker-machine
+          docker-machine create --driver virtualbox default
+          docker-machine env default
+      - name: Run container
+        run: |
+          eval "$(docker-machine env default)"
+          docker pull minio/minio
+          docker container run --rm minio/minio minio --help
       - uses: actions/checkout@v2
       - name: Set up NPM
         uses: actions/setup-node@v2-beta
