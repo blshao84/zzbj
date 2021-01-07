@@ -79,18 +79,25 @@ jobs:
         run: ./gradlew clean build installLocal
       - name: Import DDL
         run: |
-          psql -d postgresql://trans@localhost/trans -f trans-schemas.sql
-          psql -d postgresql://trans@localhost/trans -f commerce_model.sql
-          psql -d postgresql://trans@localhost/trans -f data_source.sql
-          psql -d postgresql://trans@localhost/trans -f history_data.sql
+          cat trans-schemas.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
+          cat commerce_model.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
+          cat data_source.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
+          cat history_data.sql | docker exec -i bct-postgresql psql -U trans
         working-directory: ./csi-trans/script/sql/db_ddl
         env:
           PGPASSWORD: kEaLJ9ZERLLN
       - name: Import DML
         run: |
-          psql -d postgresql://trans@localhost/trans -f base_element.sql
-          psql -d postgresql://trans@localhost/trans -f report_base_config.sql
-          psql -d postgresql://trans@localhost/trans -f structure.sql
+          sleep 5
+          cat base_element.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
+          cat report_base_config.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
+          cat structure.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
         working-directory: ./csi-trans/script/sql/db_dml
         env:
           PGPASSWORD: kEaLJ9ZERLLN
