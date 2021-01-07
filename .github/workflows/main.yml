@@ -70,30 +70,26 @@ jobs:
 #        run: ./gradlew installLocal
       - name: Install Docker and Docker Machine
         run: |
-          brew cask install docker
-          brew start docker
-          docker run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
+          mkdir -p ~/.docker/machine/cache
+          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
+          brew install docker docker-machine
+          docker-machine create --driver virtualbox default
+          docker-machine env default
+      - name: Pull container and Run it
+        run: |
+          eval "$(docker-machine env default)"
+          docker pull postgres:9-alpine
+          docker container run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
           docker ps -a
-#          mkdir -p ~/.docker/machine/cache
-#          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
-#          brew install docker docker-machine
-#          docker-machine create --driver virtualbox default
-#          docker-machine env default
-#      - name: Pull container and Run it
-#        run: |
-#          eval "$(docker-machine env default)"
-#          docker pull postgres:9-alpine
-#          docker container run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
-#          docker ps -a
       - name: Import DDL
         run: |
-          cat trans-schemas.sql | docker exec -i bct-postgresql psql -U trans
+          cat trans-schemas.sql | docker-machine ssh default psql -U trans
           sleep 5
-          cat commerce_model.sql | docker exec -i bct-postgresql psql -U trans
+          cat commerce_model.sql | docker-machine ssh default psql -U trans
           sleep 5
-          cat data_source.sql | docker exec -i bct-postgresql psql -U trans
+          cat data_source.sql | docker-machine ssh default psql -U trans
           sleep 5
-          cat history_data.sql | docker exec -i bct-postgresql psql -U trans
+          cat history_data.sql | docker-machine ssh default psql -U trans
         working-directory: ./csi-trans/script/sql/db_ddl
         env:
           PGPASSWORD: kEaLJ9ZERLLN
@@ -101,11 +97,11 @@ jobs:
         run: |
           eval "$(docker-machine env default)"
           sleep 5
-          cat base_element.sql | docker exec -i bct-postgresql psql -U trans
+          cat base_element.sql | docker-machine ssh default psql -U trans
           sleep 5
-          cat report_base_config.sql | docker exec -i bct-postgresql psql -U trans
+          cat report_base_config.sql | docker-machine ssh default psql -U trans
           sleep 5
-          cat structure.sql | docker exec -i bct-postgresql psql -U trans
+          cat structure.sql | docker-machine ssh default psql -U trans
           sleep 5
         working-directory: ./csi-trans/script/sql/db_dml
         env:
