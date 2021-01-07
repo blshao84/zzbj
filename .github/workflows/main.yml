@@ -83,7 +83,8 @@ jobs:
           docker ps -a
       - name: Import DDL
         run: |
-          cat trans-schemas.sql | docker-machine ssh default su - postgres
+          eval "$(docker-machine env default)"
+          cat trans-schemas.sql | docker-machine ssh default docker exec -i bct-postgresql psql -U trans
           sleep 5
           cat commerce_model.sql | docker-machine ssh default psql -U trans
           sleep 5
