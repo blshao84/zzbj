@@ -10,11 +10,11 @@ from service.entity import sendReport
 
 
 def setup_module():
-    print("-------> 报告类型：A1001 -------> 报送方式：A -------> 准备数据开始")
+    print("\n-------> 报告类型：A1001 -------> 报送方式：A -------> 准备数据开始\n")
 
 
 def teardown_module():
-    print("-------> 报告类型：A1001 -------> 报送方式：A -------> 清理数据开始")
+    print("\n-------> 报告类型：A1001 -------> 报送方式：A -------> 清理数据开始\n")
 
 
 @pytest.mark.run(order=1)
