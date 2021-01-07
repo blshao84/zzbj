@@ -36,10 +36,13 @@ def test_a1001_add():
     service_bl.Excel_2_Json(report)
     service_bl.Save_Data_And_Generate_Zip(report)
 
-    shutil.copy(os.path.join(parent_dir, '../dist/A1001/A/OTC_000023_000020_20210106_0001.zip'),
+    shutil.copy(os.path.join(parent_dir, '../../../../base-document/'
+                             + today_dash + '-zip/OTC_000023_000020_'
+                             + today_no_dash + '_0001.zip'),
                 os.path.join(parent_dir, '../dist/A1001/A/'))
 
-    utils.unzip_file(os.path.join(parent_dir, '../dist/A1001/A/OTC_000023_000020_20210106_0001.zip'),
+    utils.unzip_file(os.path.join(parent_dir, '../dist/A1001/A/OTC_000023_000020_'
+                                  + today_no_dash + '_0001.zip'),
                      os.path.join(parent_dir, '../dist/A1001/A/'))
 
     original_xml_path = os.path.join(parent_dir, '../template/A1001/A/A1001_A.xml')

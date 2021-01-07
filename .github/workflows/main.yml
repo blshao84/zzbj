@@ -117,6 +117,7 @@ jobs:
       - name: Run PyTest
         run: |
           export PYTHONPATH=$(pwd)
+          mkdir log
           cd test
           python test_list.py
         working-directory: ./csi-trans/script/python
