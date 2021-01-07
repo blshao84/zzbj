@@ -123,6 +123,7 @@ project.task("installLocal") {
         copy {
             from "$rootDir/script"
             include "trans.config.js"
+            include "actions.config.js"
             into "$rootDir/csi-trans"
         }
         println("copying center-1.0.jar from $rootDir/center/target to $rootDir/csi-trans/bin")
