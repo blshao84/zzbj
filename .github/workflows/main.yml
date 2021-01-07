@@ -41,6 +41,7 @@ jobs:
           brew install docker docker-machine
           docker-machine create --driver virtualbox default
           docker-machine env default
+          docker-machine ip
       - name: Run postgres:9-alpine in Docker
         run: |
           eval "$(docker-machine env default)"
