@@ -84,13 +84,14 @@ jobs:
       - name: Import DDL
         run: |
           eval "$(docker-machine env default)"
-          cat trans-schemas.sql | docker-machine ssh default docker exec -i bct-postgresql psql -U trans
+          docker ps -a
+          cat trans-schemas.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
-          cat commerce_model.sql | docker-machine ssh default psql -U trans
+          cat commerce_model.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
-          cat data_source.sql | docker-machine ssh default psql -U trans
+          cat data_source.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
-          cat history_data.sql | docker-machine ssh default psql -U trans
+          cat history_data.sql | docker exec -i bct-postgresql psql -U trans
         working-directory: ./csi-trans/script/sql/db_ddl
         env:
           PGPASSWORD: kEaLJ9ZERLLN
@@ -98,11 +99,11 @@ jobs:
         run: |
           eval "$(docker-machine env default)"
           sleep 5
-          cat base_element.sql | docker-machine ssh default psql -U trans
+          cat base_element.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
-          cat report_base_config.sql | docker-machine ssh default psql -U trans
+          cat report_base_config.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
-          cat structure.sql | docker-machine ssh default psql -U trans
+          cat structure.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
         working-directory: ./csi-trans/script/sql/db_dml
         env:
