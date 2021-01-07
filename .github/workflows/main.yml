@@ -110,8 +110,7 @@ jobs:
         env:
           PGPASSWORD: kEaLJ9ZERLLN
       - name: Launch Web Server
-        run: pm2 start actions.config.js
-        working-directory: ./csi-trans
-      - name: Check env
         run: |
+          pm2 start actions.config.js
           pm2 log
+        working-directory: ./csi-trans
