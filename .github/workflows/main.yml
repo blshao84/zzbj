@@ -70,7 +70,8 @@ jobs:
 #        run: ./gradlew installLocal
       - name: Install Docker and Docker Machine
         run: |
-          brew install docker
+          brew cask install docker
+          brew start docker
           docker run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
           docker ps -a
 #          mkdir -p ~/.docker/machine/cache
