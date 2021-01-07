@@ -22,6 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: harmon758/postgresql-action@v1
+        with:
+          postgresql version: '11'
       - uses: actions/checkout@v2
       - name: Set up NPM
         uses: actions/setup-node@v2-beta
