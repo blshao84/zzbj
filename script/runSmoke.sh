@@ -1,5 +1,5 @@
 #!/bin/bash
-cd script/python
+cd python
 mkdir log
 export PYTHONPATH=$(pwd)
 cd test
