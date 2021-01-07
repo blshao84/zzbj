@@ -77,6 +77,27 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew clean build installLocal
+      - name: Import DDL
+        run: |
+          psql -d postgresql://trans@localhost/trans -f trans-schemas.sql
+          psql -d postgresql://trans@localhost/trans -f commerce_model.sql
+          psql -d postgresql://trans@localhost/trans -f data_source.sql
+          psql -d postgresql://trans@localhost/trans -f history_data.sql
+        working-directory: ./csi-trans/script/sql/db_ddl
+        env:
+          PGPASSWORD: kEaLJ9ZERLLN
+      - name: Import DML
+        run: |
+          psql -d postgresql://trans@localhost/trans -f base_element.sql
+          psql -d postgresql://trans@localhost/trans -f report_base_config.sql
+          psql -d postgresql://trans@localhost/trans -f structure.sql
+        working-directory: ./csi-trans/script/sql/db_dml
+        env:
+          PGPASSWORD: kEaLJ9ZERLLN
+      - name: Launch Web Server
+        run: pm2 start trans.config.js
+        working-directory: ./csi-trans
       - name: Check env
         run: |
-          pwd
+          sleep 15
+          pm2 status
