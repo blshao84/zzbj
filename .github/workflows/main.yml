@@ -34,6 +34,19 @@ jobs:
 #          - 5432:5432
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Install Docker and Docker Machine
+        run: |
+          mkdir -p ~/.docker/machine/cache
+          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
+          brew install docker docker-machine
+          docker-machine create --driver virtualbox default
+          docker-machine env default
+      - name: Run postgres:9-alpine in Docker
+        run: |
+          eval "$(docker-machine env default)"
+          docker pull postgres:9-alpine
+          docker container run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
+          docker ps -a
       - uses: actions/checkout@v2
       - name: Set up NPM
         uses: actions/setup-node@v2-beta
@@ -64,27 +77,13 @@ jobs:
           pip install xlwings
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-#      - name: Build with Gradle
-#        run: ./gradlew --parallel build
+      - name: Build with Gradle
+        run: ./gradlew --parallel build
       - name: Install Artifacts
         run: ./gradlew installLocal
-      - name: Install Docker and Docker Machine
-        run: |
-          mkdir -p ~/.docker/machine/cache
-          curl -Lo ~/.docker/machine/cache/boot2docker.iso https://github.com/boot2docker/boot2docker/releases/download/v19.03.12/boot2docker.iso
-          brew install docker docker-machine
-          docker-machine create --driver virtualbox default
-          docker-machine env default
-      - name: Pull container and Run it
-        run: |
-          eval "$(docker-machine env default)"
-          docker pull postgres:9-alpine
-          docker container run --rm --name bct-postgresql -e POSTGRES_USER=trans -e POSTGRES_PASSWORD=kEaLJ9ZERLLN -e POSTGRES_DB=trans -p 5432:5432 -d postgres:9-alpine -c max_connections=300
-          docker ps -a
       - name: Import DDL
         run: |
           eval "$(docker-machine env default)"
-          sleep 60
           docker ps -a
           cat trans-schemas.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
@@ -93,13 +92,13 @@ jobs:
           cat data_source.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
           cat history_data.sql | docker exec -i bct-postgresql psql -U trans
+          sleep 5
         working-directory: ./csi-trans/script/sql/db_ddl
         env:
           PGPASSWORD: kEaLJ9ZERLLN
       - name: Import DML
         run: |
           eval "$(docker-machine env default)"
-          sleep 5
           cat base_element.sql | docker exec -i bct-postgresql psql -U trans
           sleep 5
           cat report_base_config.sql | docker exec -i bct-postgresql psql -U trans
