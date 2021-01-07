@@ -5,7 +5,7 @@
     <SenderCode>000023</SenderCode>
     <ReceiverCode>000020</ReceiverCode>
     <SendDate>2021-01-06</SendDate>
-    <FileNumber>0002</FileNumber>
+    <FileNumber>0001</FileNumber>
     <BusiDataType>A1001</BusiDataType>
     <OperationType>A</OperationType>
   </Header>
