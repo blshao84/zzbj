@@ -112,5 +112,9 @@ jobs:
       - name: Launch Web Server
         run: |
           pm2 start actions.config.js
-          pm2 log
+          sleep 30
         working-directory: ./csi-trans
+      - name: Run PyTest
+        run: |
+          python test_list.py
+        working-directory: ./csi-trans/script/python/test
