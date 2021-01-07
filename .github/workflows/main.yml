@@ -115,4 +115,4 @@ jobs:
           sleep 30
         working-directory: ./csi-trans
       - name: Smoke Test
-          run: ./gradlew smokeTest
+        run: ./gradlew smokeTest
