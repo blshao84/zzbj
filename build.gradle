@@ -156,5 +156,17 @@ project.task("installLocal") {
             include "**"
             into "$rootDir/csi-trans/script/sql"
         }
+        println("copying runSmoke.sh from $rootDir/script/ to $rootDir/csi-trans/script")
+        copy {
+            from "$rootDir/script"
+            include "runSmoke.sh"
+            into "$rootDir/csi-trans/script"
+            fileMode 0777
+        }
     }
+}
+
+task smokeTest(type:Exec) {
+    workingDir 'csi-trans'
+    commandLine './runSmoke.sh'
 }

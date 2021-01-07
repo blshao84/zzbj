@@ -1,7 +1,7 @@
 even: local_dev #执行环境
 
 dev: # 开发环境
-  ip: 10.1.5.106
+  ip: 10.1.5.57
   port: 16016
   username: admin
   pwd: 123456a.123456a.
@@ -12,8 +12,8 @@ dev: # 开发环境
   logging_level: 10
   logging_filename: dev_log.txt
 
-local_dev: # 开发环境
-  ip: 10.1.5.57
+local_dev: # 本地开发环境
+  ip: localhost
   port: 16081
   username: script
   pwd: 123456a.

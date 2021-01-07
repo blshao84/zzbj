@@ -114,10 +114,5 @@ jobs:
           pm2 start actions.config.js
           sleep 30
         working-directory: ./csi-trans
-      - name: Run PyTest
-        run: |
-          export PYTHONPATH=$(pwd)
-          mkdir log
-          cd test
-          python test_list.py
-        working-directory: ./csi-trans/script/python
+      - name: Smoke Test
+          run: ./gradlew smokeTest
