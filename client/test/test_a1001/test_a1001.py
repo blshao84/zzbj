@@ -2,7 +2,7 @@
 
 import os
 import pytest
-from test.test_utils import prepare
+from test import test_utils
 from datetime import datetime
 from xmldiff.main import diff_files
 from service import utils
@@ -22,7 +22,7 @@ def test_a1001_add():
     today_no_dash = datetime.today().strftime('%Y%m%d')
     parent_dir = os.path.dirname(os.path.abspath(__file__))
 
-    prepare('A1001', 'A', 'A1001主协议列表.xlsx', ['A100101.pdf'], '0001')
+    test_utils.prepare('A1001', 'A', 'A1001主协议列表.xlsx', ['A100101.pdf'], '0001')
 
     original_xml_path = os.path.join(parent_dir, '../template/A1001/A/A1001_A.xml')
     original_xml = utils.xml_to_dict(original_xml_path)
