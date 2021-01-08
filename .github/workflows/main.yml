@@ -80,7 +80,7 @@ jobs:
           pip install PyMySQL==0.10.1
           pip install python-dateutil==2.8.1
           pip install pytz==2020.5
-          pip install pywin32==300
+          pip install pywin32
           pip install PyYAML==5.3.1
           pip install requests==2.25.1
           pip install six==1.15.0
