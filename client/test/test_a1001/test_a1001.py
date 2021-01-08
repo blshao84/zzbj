@@ -2,11 +2,10 @@
 
 import os
 import pytest
-import shutil
+from test.test_utils import prepare
 from datetime import datetime
 from xmldiff.main import diff_files
-from service import service_bl, utils
-from service.entity import sendReport
+from service import utils
 
 
 def setup_module():
@@ -22,28 +21,8 @@ def test_a1001_add():
     today_dash = datetime.today().strftime('%Y-%m-%d')
     today_no_dash = datetime.today().strftime('%Y%m%d')
     parent_dir = os.path.dirname(os.path.abspath(__file__))
-    config_file = os.path.join(parent_dir, '../../client_enterprise/config.yaml')
-    utils.CONFIG_PATH_NAME = config_file
-    utils.set_logging_by_config()
 
-    report = sendReport.EnterpriseSendReport()
-    report.busiDataType = 'A1001'
-    report.operationType = 'A'
-    report.xlsxFileAbsName = os.path.join(parent_dir, '../template/A1001/A/A1001主协议列表.xlsx')
-    report.pdfFileAbsNames = [os.path.join(parent_dir, '../template/A1001/A/A100101.pdf')]
-    report.pdfFileNames = ['A100101.pdf']
-
-    service_bl.Excel_2_Json(report)
-    service_bl.Save_Data_And_Generate_Zip(report)
-
-    shutil.copy(os.path.join(parent_dir, '../../../../base-document/'
-                             + today_dash + '-zip/OTC_000023_000020_'
-                             + today_no_dash + '_0001.zip'),
-                os.path.join(parent_dir, '../template/A1001/A/'))
-
-    utils.unzip_file(os.path.join(parent_dir, '../template/A1001/A/OTC_000023_000020_'
-                                  + today_no_dash + '_0001.zip'),
-                     os.path.join(parent_dir, '../template/A1001/A/'))
+    prepare('A1001', 'A', 'A1001主协议列表.xlsx', ['A100101.pdf'], '0001')
 
     original_xml_path = os.path.join(parent_dir, '../template/A1001/A/A1001_A.xml')
     original_xml = utils.xml_to_dict(original_xml_path)

@@ -21,7 +21,10 @@ def prepare(busi_data_type, operation_type, excel_file_name, pdf_file_names, fil
     report.operationType = operation_type
     report.xlsxFileAbsName = os.path.join(parent_dir, template_path + excel_file_name)
     if pdf_file_names is not None and len(pdf_file_names) > 0:
-        report.pdfFileAbsNames = [os.path.join(parent_dir, '../template/A1001/A/A100101.pdf')]
+        pdf_file_abs_names = []
+        for i in range(len(pdf_file_names)):
+            pdf_file_abs_names[i] = os.path.join(parent_dir, template_path + pdf_file_names[i])
+        report.pdfFileAbsNames = pdf_file_abs_names
         report.pdfFileNames = pdf_file_names
 
     service_bl.Excel_2_Json(report)
