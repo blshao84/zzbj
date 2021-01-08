@@ -271,3 +271,11 @@ def file_md5(path):
     with open(path, 'rb') as fp:
         data = fp.read()
     return hashlib.md5(data).hexdigest()
+
+
+def sender_code():
+    return get_even_config_value('sender_code')
+
+
+def receiver_code():
+    return get_even_config_value('receiver_code')

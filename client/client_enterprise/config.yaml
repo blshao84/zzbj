@@ -25,6 +25,8 @@ local_dev: # 本地开发环境
   db_pwd:
   logging_level: 10
   logging_filename: dev_log.txt
+  sender_code: 000023
+  receiver_code: 000020
 
 A1000:
   file_name: sample.xlsx
